@@ -40,8 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="IAsyncExecutable.cs" />
+    <Compile Include="IExecutable.cs" />
+    <Compile Include="IExecutor.cs" />
+    <Compile Include="IHasDefence.cs" />
+    <Compile Include="IHasValidation.cs" />
+    <Compile Include="IInputManager.cs" />
+    <Compile Include="Input.cs" />
+    <Compile Include="IOutputManager.cs" />
+    <Compile Include="Output.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SampleAttribute.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

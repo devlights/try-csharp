@@ -42,8 +42,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CuiAppProcessExecutor.cs" />
+    <Compile Include="CuiInputManager.cs" />
+    <Compile Include="CuiOutputManager.cs" />
+    <Compile Include="EmptyInputValidator.cs" />
+    <Compile Include="ExitPhaseValidator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TryCSharp.Common\TryCSharp.Common.csproj">
+      <Project>{5adc07cb-f884-44eb-8203-a13d079c6caf}</Project>
+      <Name>TryCSharp.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TryCSharp.Samples\TryCSharp.Samples.csproj">
+      <Project>{aaa96837-1a13-468f-8b21-14fd0f0f2839}</Project>
+      <Name>TryCSharp.Samples</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
