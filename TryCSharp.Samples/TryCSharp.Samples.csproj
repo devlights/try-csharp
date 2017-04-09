@@ -61,6 +61,7 @@
     <Compile Include="Advanced\AppDomainSamples03.cs" />
     <Compile Include="Advanced\AppDomainSamples04.cs" />
     <Compile Include="Advanced\AssemblySamples01.cs" />
+    <Compile Include="Advanced\DebuggerDisplayAttributeSamples01.cs" />
     <Compile Include="Advanced\DisposableSamples01.cs" />
     <Compile Include="Advanced\ListForEachDiffSamples01.cs" />
     <Compile Include="Advanced\MEFSamples01.cs" />
