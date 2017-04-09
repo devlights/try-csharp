@@ -7,4 +7,4 @@ This is my TUTORIAL project for csharp. (.NET Framework and Mono)
 
 # Run
 + set TryCSharp.Tools.Cui project as 'startup project'
-+ run onto ide
++ run onto IDE
