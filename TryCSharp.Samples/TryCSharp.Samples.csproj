@@ -34,13 +34,109 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdoNet\DataTableExtensionsSample01.cs" />
+    <Compile Include="AdoNet\DataTableExtensionsSample02.cs" />
+    <Compile Include="AdoNet\DataTableSamples01.cs" />
+    <Compile Include="AdoNet\DataTableSamples02.cs" />
+    <Compile Include="AdoNet\DataTableSamples03.cs" />
+    <Compile Include="AdoNet\DataTableSortSamples01.cs" />
+    <Compile Include="AdoNet\DbCommandTimeoutSample01.cs" />
+    <Compile Include="AdoNet\ExcelConnectSamples01.cs" />
+    <Compile Include="AdoNet\TextConnectSamples01.cs" />
+    <Compile Include="Advanced\AppDomainSamples01.cs" />
+    <Compile Include="Advanced\AppDomainSamples02.cs" />
+    <Compile Include="Advanced\AppDomainSamples03.cs" />
+    <Compile Include="Advanced\AppDomainSamples04.cs" />
+    <Compile Include="Advanced\AssemblySamples01.cs" />
+    <Compile Include="Advanced\DisposableSamples01.cs" />
+    <Compile Include="Advanced\ListForEachDiffSamples01.cs" />
+    <Compile Include="Advanced\MEFSamples01.cs" />
+    <Compile Include="Advanced\MEFSamples02.cs" />
+    <Compile Include="Advanced\MEFSamples03.cs" />
+    <Compile Include="Advanced\ProgressSamples01.cs" />
+    <Compile Include="Advanced\RuntimeHelpersSamples01.cs" />
+    <Compile Include="Advanced\RuntimeHelpersSamples02.cs" />
+    <Compile Include="Advanced\RuntimeHelpersSamples03.cs" />
+    <Compile Include="Advanced\SerializationSurrogateSamples01.cs" />
+    <Compile Include="Basic\AnonymousDelegateSample.cs" />
+    <Compile Include="Basic\ArraySamples01.cs" />
+    <Compile Include="Basic\ArraySegmentSamples01.cs" />
+    <Compile Include="Basic\BCDSamples01.cs" />
+    <Compile Include="Basic\BitConverterSamples01.cs" />
+    <Compile Include="Basic\BitConverterSamples02.cs" />
+    <Compile Include="Basic\BufferSamples01.cs" />
+    <Compile Include="Basic\ByteArraySamples01.cs" />
+    <Compile Include="Basic\ByteArraySamples02.cs" />
+    <Compile Include="Basic\ByteArraySamples03.cs" />
+    <Compile Include="Basic\ByteArraySamples04.cs" />
+    <Compile Include="Basic\ByteArraySamples05.cs" />
+    <Compile Include="Basic\ByteArraySamples06.cs" />
+    <Compile Include="Basic\ByteArraySamples07.cs" />
+    <Compile Include="Basic\ByteArraySamples08.cs" />
+    <Compile Include="Basic\ByteArraySamples09.cs" />
+    <Compile Include="Basic\CallerInformationSamples01.cs" />
+    <Compile Include="Basic\CallerInformationSamples02.cs" />
+    <Compile Include="Basic\CompareOptionsSamples01.cs" />
+    <Compile Include="Basic\CompareOptionsSamples02.cs" />
+    <Compile Include="Basic\ComparerSamples01.cs" />
+    <Compile Include="Basic\CompileDirectiveSamples01.cs" />
+    <Compile Include="Basic\ConsoleCursorSamples01.cs" />
+    <Compile Include="Basic\ContravarianceSamples01.cs" />
+    <Compile Include="Basic\CovarianceSamples01.cs" />
+    <Compile Include="Basic\DateParseSample01.cs" />
+    <Compile Include="Basic\DebugSamples01.cs" />
+    <Compile Include="Basic\DefaultValuesSamples01.cs" />
+    <Compile Include="Basic\DelegateSample.cs" />
+    <Compile Include="Basic\DynamicObjectSamples01.cs" />
+    <Compile Include="Basic\EnumSamples001.cs" />
+    <Compile Include="Basic\EnumToStringSamples01.cs" />
+    <Compile Include="Basic\EqualityComparerSamples01.cs" />
+    <Compile Include="Basic\EventSettingSamples01.cs" />
+    <Compile Include="Basic\EventSettingSamples02.cs" />
+    <Compile Include="Basic\ExpandoObjectSamples01.cs" />
+    <Compile Include="Basic\ExpandoObjectSamples02.cs" />
+    <Compile Include="Basic\ExpandoObjectSamples03.cs" />
+    <Compile Include="Basic\ExpandoObjectSamples04.cs" />
+    <Compile Include="Basic\ExtensionMethodSample01.cs" />
+    <Compile Include="Basic\IComparableSamples01.cs" />
+    <Compile Include="Basic\IEquatableSamples01.cs" />
+    <Compile Include="Basic\InterfaceSamples01.cs" />
+    <Compile Include="Basic\LambdaSample.cs" />
+    <Compile Include="Basic\LazyInitializerSamples01.cs" />
+    <Compile Include="Basic\LazySamples01.cs" />
+    <Compile Include="Basic\MarshalByRefObjectSamples01.cs" />
+    <Compile Include="Basic\NewLineDetectSample01.cs" />
+    <Compile Include="Basic\NumberFormatSamples01.cs" />
+    <Compile Include="Basic\NumberFormatSamples02.cs" />
+    <Compile Include="Basic\NumberFormatSamples03.cs" />
+    <Compile Include="Basic\NumberFormatSamples04.cs" />
+    <Compile Include="Basic\OrderedDictionarySample01.cs" />
+    <Compile Include="Basic\RuntimeEnvironmentSamples01.cs" />
+    <Compile Include="Basic\SecureStringSamples01.cs" />
+    <Compile Include="Basic\StringFormatSamples01.cs" />
+    <Compile Include="Basic\StringInfoSamples01.cs" />
+    <Compile Include="Basic\StringIsNullOrWhiteSpaceSamples01.cs" />
+    <Compile Include="Basic\TimeConvertSample01.cs" />
+    <Compile Include="Basic\TimeConvertSample02.cs" />
+    <Compile Include="Basic\TupleSamples01.cs" />
+    <Compile Include="Basic\TypeSamples01.cs" />
+    <Compile Include="Basic\YieldSamples01.cs" />
+    <Compile Include="Basic\ZenkakuHankakuCheckSample01.cs" />
     <Compile Include="Dummy.cs" />
+    <Compile Include="Helpers\CompareResultHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -48,6 +144,21 @@
       <Project>{5ADC07CB-F884-44EB-8203-A13D079C6CAF}</Project>
       <Name>TryCSharp.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="xml\Books.xml" />
+    <Content Include="xml\ConsolidatedPurchaseOrders.xml" />
+    <Content Include="xml\CustomersOrders.xml" />
+    <Content Include="xml\CustomersOrders.xsd" />
+    <Content Include="xml\CustomersOrdersInNamespace.xml" />
+    <Content Include="xml\Data.xml" />
+    <Content Include="xml\DataInNamespace.xml" />
+    <Content Include="xml\PurchaseOrder.xml" />
+    <Content Include="xml\PurchaseOrderInNamespace.xml" />
+    <Content Include="xml\PurchaseOrders.xml" />
+    <Content Include="xml\PurchaseOrdersInNamespace.xml" />
+    <Content Include="xml\TestConfig.xml" />
+    <Content Include="xml\TestConfigInNamespace.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
