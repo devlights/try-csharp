@@ -8,10 +8,10 @@ using TryCSharp.Samples;
 
 namespace TryCSharp.Tools.Cui
 {
-    static class Program
+    internal static class Program
     {
         private static readonly Type DummyType;
-        private static string ClassName;
+        private static readonly string ClassName;
 
         static Program()
         {
@@ -23,12 +23,13 @@ namespace TryCSharp.Tools.Cui
         {
             try
             {
-                Input.InputManager   = new CuiInputManager();
+                Input.InputManager = new CuiInputManager();
                 Output.OutputManager = new CuiOutputManager();
 
                 var emptyValidator = new EmptyInputValidator();
-                var exitValidator  = new ExitPhaseValidator();
+                var exitValidator = new ExitPhaseValidator();
 
+                var typeFullNameList = GetAssembly().GetExportedTypes().Select(x => x.FullName).ToList();
                 for (;;)
                 {
                     try
@@ -46,16 +47,41 @@ namespace TryCSharp.Tools.Cui
                             break;
                         }
 
-                        var handle = Activator.CreateInstance(GetAssembly().FullName, GetFqdnName(userInput));
-                        if (handle != null)
+                        var filtered = typeFullNameList.Where(x =>
                         {
-                            var clazz = handle.Unwrap();
-                            if (clazz != null)
-                            {
-                                var executor = new CuiAppProcessExecutor();
-                                executor.Execute(clazz as IExecutable);
-                            }
+                            var fqdn = x.ToLower();
+                            var inp = userInput.ToLower();
+
+                            return fqdn.Contains(inp);
+                        }).ToList();
+
+                        if (filtered.Count == 0)
+                        {
+                            Output.WriteLine("指定されたサンプルが見つかりません...[{0}]", userInput);
+                            continue;
                         }
+
+                        if (filtered.Count > 1)
+                        {
+                            Output.WriteLine("候補が複数存在します。");
+                            foreach (var item in filtered)
+                            {
+                                Output.WriteLine("**** {0}", item);
+                            }
+
+                            continue;
+                        }
+
+                        var handle = Activator.CreateInstance(GetAssembly().FullName, filtered.First());
+
+                        var clazz = handle?.Unwrap();
+                        if (clazz == null)
+                        {
+                            continue;
+                        }
+
+                        var executor = new CuiAppProcessExecutor();
+                        executor.Execute(clazz as IExecutable);
                     }
                     catch (TypeLoadException)
                     {
@@ -77,33 +103,6 @@ namespace TryCSharp.Tools.Cui
         private static Assembly GetAssembly()
         {
             return DummyType.Assembly;
-        }
-
-        private static string GetInitialClassName()
-        {
-            return Environment.GetCommandLineArgs().Skip(1).FirstOrDefault();
-        }
-
-        private static string WithNamespace(string className)
-        {
-            var parts = className.Split(new char[] { '.' });
-            if (parts.Length > 1)
-            {
-                return className;
-            }
-
-            return string.Format("{0}.{1}", DummyType.Namespace, className);
-        }
-
-        private static string GetFqdnName(string value)
-        {
-            var className = GetInitialClassName();
-            if (!string.IsNullOrWhiteSpace(className))
-            {
-                return WithNamespace((ClassName = className));
-            }
-
-            return WithNamespace((ClassName = value));
         }
     }
 }
