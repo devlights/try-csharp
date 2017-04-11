@@ -11,6 +11,6 @@ namespace TryCSharp.Common
         /// 処理を実行します。
         /// </summary>
         /// <returns>タスク</returns>
-        new Task Execute();
+        Task Execute();
     }
 }

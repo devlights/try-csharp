@@ -16,7 +16,7 @@ namespace TryCSharp.Samples.Advanced
 
         // Importパート
         // 尚、明示的にnullを初期値として指定しているのは、そのままだとコンパイラによって警告扱いされるため
-        [Import(typeof(IExporter))] private IExporter _exporter;
+        [Import(typeof(IExporter))] private IExporter _exporter = null;
 
         public void Execute()
         {
