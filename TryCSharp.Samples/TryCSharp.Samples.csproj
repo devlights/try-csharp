@@ -136,6 +136,7 @@
     <Compile Include="Basic\TypeSamples01.cs" />
     <Compile Include="Basic\YieldSamples01.cs" />
     <Compile Include="Basic\ZenkakuHankakuCheckSample01.cs" />
+    <Compile Include="Collections\QueueSynchronizedSamples01.cs" />
     <Compile Include="Dummy.cs" />
     <Compile Include="Helpers\CompareResultHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
