@@ -137,6 +137,11 @@
     <Compile Include="Basic\YieldSamples01.cs" />
     <Compile Include="Basic\ZenkakuHankakuCheckSample01.cs" />
     <Compile Include="Collections\QueueSynchronizedSamples01.cs" />
+    <Compile Include="Commons\Constants.cs" />
+    <Compile Include="Commons\Data\Person.cs" />
+    <Compile Include="Commons\Data\Persons.cs" />
+    <Compile Include="Commons\Extensions\PersonExtensions.cs" />
+    <Compile Include="Commons\Extensions\StringExtensions.cs" />
     <Compile Include="Dummy.cs" />
     <Compile Include="Helpers\CompareResultHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
