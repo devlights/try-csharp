@@ -144,6 +144,11 @@
     <Compile Include="Commons\Extensions\StringExtensions.cs" />
     <Compile Include="Dummy.cs" />
     <Compile Include="Helpers\CompareResultHelper.cs" />
+    <Compile Include="IO\GetInvalidPathCharsAndGetInvalidFileNameCharsSamples01.cs" />
+    <Compile Include="IO\ImageConverterSamples01.cs" />
+    <Compile Include="IO\ZipFileSamples01.cs" />
+    <Compile Include="IO\ZipFileSamples02.cs" />
+    <Compile Include="IO\ZipFileSamples03.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
