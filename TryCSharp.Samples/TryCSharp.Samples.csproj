@@ -43,6 +43,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -149,6 +150,8 @@
     <Compile Include="IO\ZipFileSamples01.cs" />
     <Compile Include="IO\ZipFileSamples02.cs" />
     <Compile Include="IO\ZipFileSamples03.cs" />
+    <Compile Include="NetWorking\PingSamples01.cs" />
+    <Compile Include="NetWorking\RssSamples01.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
