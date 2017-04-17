@@ -153,6 +153,14 @@
     <Compile Include="NetWorking\PingSamples01.cs" />
     <Compile Include="NetWorking\RssSamples01.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\Emit\EmitSample01.cs" />
+    <Compile Include="Reflection\Emit\EmitSample02.cs" />
+    <Compile Include="Reflection\Emit\EmitSample03.cs" />
+    <Compile Include="Reflection\GenericMethodReflectionSample.cs" />
+    <Compile Include="Reflection\HasByRefParameterMethodReflectionSample.cs" />
+    <Compile Include="Reflection\ReflectionSample01.cs" />
+    <Compile Include="Reflection\ReflectionSample02.cs" />
+    <Compile Include="Reflection\ReflectionSample03.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TryCSharp.Common\TryCSharp.Common.csproj">
