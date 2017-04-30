@@ -162,6 +162,13 @@
     <Compile Include="Reflection\ReflectionSample02.cs" />
     <Compile Include="Reflection\ReflectionSample03.cs" />
     <Compile Include="Serialization\XmlSerializerSamples01.cs" />
+    <Compile Include="TaskParallelLibrary\TaskSamples01.cs" />
+    <Compile Include="TaskParallelLibrary\TaskSamples02.cs" />
+    <Compile Include="TaskParallelLibrary\TaskSamples03.cs" />
+    <Compile Include="TaskParallelLibrary\TaskSamples04.cs" />
+    <Compile Include="TaskParallelLibrary\TaskSamples05.cs" />
+    <Compile Include="TaskParallelLibrary\TaskSamples06.cs" />
+    <Compile Include="TaskParallelLibrary\TaskSamples07.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TryCSharp.Common\TryCSharp.Common.csproj">
