@@ -161,6 +161,7 @@
     <Compile Include="Reflection\ReflectionSample01.cs" />
     <Compile Include="Reflection\ReflectionSample02.cs" />
     <Compile Include="Reflection\ReflectionSample03.cs" />
+    <Compile Include="Serialization\XmlSerializerSamples01.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TryCSharp.Common\TryCSharp.Common.csproj">

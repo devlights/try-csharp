@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using TryCSharp.Common;
@@ -47,10 +48,21 @@ namespace TryCSharp.Tools.Cui
                             break;
                         }
 
+                        var optInfo = new Dictionary<string, bool>
+                        {
+                            {"fullMatched", false}
+                        };
+
                         var filtered = typeFullNameList.Where(x =>
                         {
                             var fqdn = x.ToLower();
                             var inp = userInput.ToLower();
+
+                            var fullMatch = fqdn.Split('.').Last() == inp;
+                            if (fullMatch)
+                            {
+                                optInfo["fullMatched"] = fullMatch;
+                            }
 
                             return fqdn.Contains(inp);
                         }).ToList();
@@ -61,15 +73,18 @@ namespace TryCSharp.Tools.Cui
                             continue;
                         }
 
-                        if (filtered.Count > 1)
+                        if (!optInfo["fullMatched"])
                         {
-                            Output.WriteLine("候補が複数存在します。");
-                            foreach (var item in filtered)
+                            if (filtered.Count > 1)
                             {
-                                Output.WriteLine("**** {0}", item);
-                            }
+                                Output.WriteLine("候補が複数存在します。");
+                                foreach (var item in filtered)
+                                {
+                                    Output.WriteLine("**** {0}", item);
+                                }
 
-                            continue;
+                                continue;
+                            }
                         }
 
                         var handle = Activator.CreateInstance(GetAssembly().FullName, filtered.First());
