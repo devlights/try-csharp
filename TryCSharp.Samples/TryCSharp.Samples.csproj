@@ -169,6 +169,34 @@
     <Compile Include="TaskParallelLibrary\TaskSamples05.cs" />
     <Compile Include="TaskParallelLibrary\TaskSamples06.cs" />
     <Compile Include="TaskParallelLibrary\TaskSamples07.cs" />
+    <Compile Include="Threading\AsyncDelegateSample.cs" />
+    <Compile Include="Threading\AsyncOperationSamples01.cs" />
+    <Compile Include="Threading\AsyncResultSamples01.cs" />
+    <Compile Include="Threading\BackgroundWorkerSample.cs" />
+    <Compile Include="Threading\BarrierSamples01.cs" />
+    <Compile Include="Threading\BarrierSamples02.cs" />
+    <Compile Include="Threading\CallContextSamples01.cs" />
+    <Compile Include="Threading\CancellationTokenSamples01.cs" />
+    <Compile Include="Threading\CancellationTokenSamples02.cs" />
+    <Compile Include="Threading\CountdownEventSamples01.cs" />
+    <Compile Include="Threading\CountdownEventSamples02.cs" />
+    <Compile Include="Threading\CountdownEventSamples03.cs" />
+    <Compile Include="Threading\CountdownEventSamples04.cs" />
+    <Compile Include="Threading\ManualResetEventSlimSamples01.cs" />
+    <Compile Include="Threading\MonitorSamples01.cs" />
+    <Compile Include="Threading\SemaphoreSlimSamples01.cs" />
+    <Compile Include="Threading\SemaphoreSlimSamples02.cs" />
+    <Compile Include="Threading\ServerTimerSamples01.cs" />
+    <Compile Include="Threading\ThreadingNamespaceSamples01.cs" />
+    <Compile Include="Threading\ThreadingNamespaceSamples02.cs" />
+    <Compile Include="Threading\ThreadingNamespaceSamples03.cs" />
+    <Compile Include="Threading\ThreadingNamespaceSamples04.cs" />
+    <Compile Include="Threading\ThreadingNamespaceSamples05.cs" />
+    <Compile Include="Threading\ThreadLocalSamples01.cs" />
+    <Compile Include="Threading\ThreadPoolSample.cs" />
+    <Compile Include="Threading\ThreadSample.cs" />
+    <Compile Include="Threading\ThreadStaticAttributeSamples01.cs" />
+    <Compile Include="Threading\WindowsFormsSynchronizationContextSamples01.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TryCSharp.Common\TryCSharp.Common.csproj">
