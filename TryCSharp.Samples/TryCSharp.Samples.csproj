@@ -180,6 +180,16 @@
     <Compile Include="Linq\LinqSamples28.cs" />
     <Compile Include="Linq\LinqSamples29.cs" />
     <Compile Include="Linq\LinqSamples30.cs" />
+    <Compile Include="Linq\LinqSamples31.cs" />
+    <Compile Include="Linq\LinqSamples32.cs" />
+    <Compile Include="Linq\LinqSamples33.cs" />
+    <Compile Include="Linq\LinqSamples34.cs" />
+    <Compile Include="Linq\LinqSamples35.cs" />
+    <Compile Include="Linq\LinqSamples36.cs" />
+    <Compile Include="Linq\LinqSamples37.cs" />
+    <Compile Include="Linq\LinqSamples38.cs" />
+    <Compile Include="Linq\LinqSamples39.cs" />
+    <Compile Include="Linq\LinqSamples40.cs" />
     <Compile Include="NetWorking\PingSamples01.cs" />
     <Compile Include="NetWorking\RssSamples01.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
