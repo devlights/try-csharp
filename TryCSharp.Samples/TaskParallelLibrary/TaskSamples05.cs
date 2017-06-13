@@ -42,7 +42,10 @@ namespace TryCSharp.Samples.TaskParallelLibrary
             // C# 5.0のasync/awaitを利用.
             //  サンプルの都合上RunAsyncの呼び出しはawaitしていない
             //
+#pragma warning disable 4014
+            // ReSharper disable once ArrangeThisQualifier
             RunAsync();
+#pragma warning restore 4014
 
             //
             // 上の記述のAwaiter版
