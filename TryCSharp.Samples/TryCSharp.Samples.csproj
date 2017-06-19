@@ -46,6 +46,7 @@
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdoNet\DataTableExtensionsSample01.cs" />
@@ -200,6 +201,17 @@
     <Compile Include="Linq\LinqSamples48.cs" />
     <Compile Include="Linq\LinqSamples49.cs" />
     <Compile Include="Linq\LinqSamples50.cs" />
+    <Compile Include="Linq\LinqSamples51.cs" />
+    <Compile Include="Linq\LinqSamples52.cs" />
+    <Compile Include="Linq\LinqSamples53.cs" />
+    <Compile Include="Linq\LinqSamples54.cs" />
+    <Compile Include="Linq\LinqSamples55.cs" />
+    <Compile Include="Linq\LinqSamples56.cs" />
+    <Compile Include="Linq\LinqSamples57.cs" />
+    <Compile Include="Linq\LinqSamples58.cs" />
+    <Compile Include="Linq\LinqSamples59.cs" />
+    <Compile Include="Linq\LinqSamples59_Extensions.cs" />
+    <Compile Include="Linq\LinqSamples60.cs" />
     <Compile Include="NetWorking\PingSamples01.cs" />
     <Compile Include="NetWorking\RssSamples01.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
