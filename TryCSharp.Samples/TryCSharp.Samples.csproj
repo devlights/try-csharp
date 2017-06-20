@@ -212,6 +212,16 @@
     <Compile Include="Linq\LinqSamples59.cs" />
     <Compile Include="Linq\LinqSamples59_Extensions.cs" />
     <Compile Include="Linq\LinqSamples60.cs" />
+    <Compile Include="Linq\LinqSamples61.cs" />
+    <Compile Include="Linq\LinqSamples62.cs" />
+    <Compile Include="Linq\LinqSamples63.cs" />
+    <Compile Include="Linq\LinqSamples64.cs" />
+    <Compile Include="Linq\LinqSamples65.cs" />
+    <Compile Include="Linq\LinqSamples66.cs" />
+    <Compile Include="Linq\LinqSamples67.cs" />
+    <Compile Include="Linq\LinqSamples68.cs" />
+    <Compile Include="Linq\LinqSamples69.cs" />
+    <Compile Include="Linq\LinqSamples70.cs" />
     <Compile Include="NetWorking\PingSamples01.cs" />
     <Compile Include="NetWorking\RssSamples01.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
