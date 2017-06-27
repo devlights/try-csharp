@@ -5,7 +5,7 @@ using TryCSharp.Common;
 namespace TryCSharp.Samples.Threading
 {
     /// <summary>
-    ///     ThreadLocal<T>クラスのサンプルです。
+    ///     ThreadLocal&lt;T&gt;クラスのサンプルです。
     /// </summary>
     [Sample]
     public class ThreadLocalSamples01 : IExecutable

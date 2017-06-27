@@ -6,7 +6,7 @@ using TryCSharp.Common;
 namespace TryCSharp.Samples.Basic
 {
     /// <summary>
-    ///     Lazy<T>, LazyInitializerクラスのサンプルです。
+    ///     Lazy&lt;T&gt;, LazyInitializerクラスのサンプルです。
     /// </summary>
     [Sample]
     public class LazySamples01 : IExecutable

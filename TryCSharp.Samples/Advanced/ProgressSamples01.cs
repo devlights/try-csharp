@@ -22,7 +22,7 @@ namespace TryCSharp.Samples.Advanced
     using WinFormsProgressBarStyle = System.Windows.Forms.ProgressBarStyle;
 
     /// <summary>
-    /// System.Progress<T>のサンプルです。
+    /// System.Progress&lt;T&gt;のサンプルです。
     /// </summary>
     /// <remarks>
     /// このクラスは、.NET Framework 4.5から追加された型です。

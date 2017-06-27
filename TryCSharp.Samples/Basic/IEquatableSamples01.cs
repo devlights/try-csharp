@@ -4,7 +4,7 @@ using TryCSharp.Common;
 namespace TryCSharp.Samples.Basic
 {
     /// <summary>
-    ///     IEquatable<T>のサンプルです。
+    ///     IEquatable&lt;Tgt;のサンプルです。
     /// </summary>
     [Sample]
     // ReSharper disable once InconsistentNaming
