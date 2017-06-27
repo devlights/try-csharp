@@ -32,6 +32,7 @@ namespace TryCSharp.Samples.Linq
             if (string.IsNullOrEmpty(tmpFilePath))
             {
                 Output.WriteLine("ファイル作成中にエラー発生");
+                return;
             }
 
             Output.WriteLine("ファイル作成完了");

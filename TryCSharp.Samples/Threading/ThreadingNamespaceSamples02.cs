@@ -69,6 +69,10 @@ namespace TryCSharp.Samples.Threading
         private void DoAnonymousDataSlotProcess(object stateObj)
         {
             var slot = stateObj as LocalDataStoreSlot;
+            if (slot == null)
+            {
+                return;
+            }
 
             //
             // スロットにデータを設定
