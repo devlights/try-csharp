@@ -69,7 +69,7 @@ namespace TryCSharp.Tools.Cui
 
                         if (filtered.Count == 0)
                         {
-                            Output.WriteLine("指定されたサンプルが見つかりません...[{0}]", userInput);
+                            Output.WriteLine("not found...[{0}]", userInput);
                             continue;
                         }
 
@@ -77,7 +77,7 @@ namespace TryCSharp.Tools.Cui
                         {
                             if (filtered.Count > 1)
                             {
-                                Output.WriteLine("候補が複数存在します。");
+                                Output.WriteLine("There are multiple candidates.");
                                 foreach (var item in filtered)
                                 {
                                     Output.WriteLine("**** {0}", item);
@@ -95,12 +95,22 @@ namespace TryCSharp.Tools.Cui
                             continue;
                         }
 
+                        // FIXME: 以下の処理がダサい。そのうち直す。
                         var executor = new CuiAppProcessExecutor();
-                        executor.Execute(clazz as IExecutable);
+                        var target = clazz as IExecutable;
+                        if (target != null)
+                        {
+                            executor.Execute(target);                            
+                        }
+                        else
+                        {
+                            var asyncTarget = clazz as IAsyncExecutable;
+                            executor.Execute(asyncTarget);
+                        }
                     }
                     catch (TypeLoadException)
                     {
-                        Output.WriteLine("指定されたサンプルが見つかりません...[{0}]", ClassName);
+                        Output.WriteLine("not found...[{0}]", ClassName);
                     }
                     catch (Exception ex)
                     {

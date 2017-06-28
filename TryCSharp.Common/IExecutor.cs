@@ -10,5 +10,11 @@
         /// </summary>
         /// <param name="target">実行可能なもの</param>
         void Execute(IExecutable target);
+
+        /// <summary>
+        /// 非同期実行します。
+        /// </summary>
+        /// <param name="target">実行可能なもの</param>
+        void Execute(IAsyncExecutable target);
     }
 }

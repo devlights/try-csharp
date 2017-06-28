@@ -9,15 +9,20 @@ namespace TryCSharp.Tools.Cui
     /// </summary>
     public class CuiAppProcessExecutor : IExecutor
     {
-        public string StartLogMessage { get; set; }
-        public string EndLogMessage   { get; set; }
+        /// <summary>
+        /// 開始ログ
+        /// </summary>
+        private string StartLogMessage { get; } = "================== START ==================";
 
-        public CuiAppProcessExecutor()
-        {
-            StartLogMessage = "================== START ==================";
-            EndLogMessage   = "==================  END  ==================";
-        }
+        /// <summary>
+        /// 終了ログ
+        /// </summary>
+        private string EndLogMessage { get; } = "==================  END  ==================";
 
+        /// <summary>
+        /// 実行します。
+        /// </summary>
+        /// <param name="target">実行可能なもの</param>
         public void Execute(IExecutable target)
         {
             if (target == null)
@@ -27,9 +32,34 @@ namespace TryCSharp.Tools.Cui
 
             using (new TimeTracer())
             {
-                Output.WriteLine(StartLogMessage);
+                Output.WriteLine(this.StartLogMessage);
                 target.Execute();
-                Output.WriteLine(EndLogMessage);
+                Output.WriteLine(this.EndLogMessage);
+            }
+        }
+
+        /// <summary>
+        /// 非同期実行します。
+        /// </summary>
+        /// <param name="target">実行可能なもの</param>
+        public void Execute(IAsyncExecutable target)
+        {
+            if (target == null)
+            {
+                throw new ArgumentNullException(nameof(target));
+            }
+
+            using (new TimeTracer())
+            {
+                Output.WriteLine(this.StartLogMessage);
+
+                var success = target.Execute().Wait(TimeSpan.FromSeconds(15));
+                if (!success)
+                {
+                    Output.WriteLine("time out.....");
+                }
+
+                Output.WriteLine(this.EndLogMessage);
             }
         }
     }
@@ -40,17 +70,13 @@ namespace TryCSharp.Tools.Cui
 
         public TimeTracer()
         {
-            _watch = Stopwatch.StartNew();
+            this._watch = Stopwatch.StartNew();
         }
-
-        #region IDisposable メンバー
 
         public void Dispose()
         {
-            _watch.Stop();
-            Output.WriteLine("処理時間： {0}", _watch.Elapsed);
+            this._watch.Stop();
+            Output.WriteLine("Elapsed Time: {0}", this._watch.Elapsed);
         }
-
-        #endregion
     }
 }
