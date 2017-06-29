@@ -61,7 +61,7 @@ namespace TryCSharp.Tools.Cui
                             var fullMatch = fqdn.Split('.').Last() == inp;
                             if (fullMatch)
                             {
-                                optInfo["fullMatched"] = fullMatch;
+                                optInfo["fullMatched"] = true;
                             }
 
                             return fqdn.Contains(inp);

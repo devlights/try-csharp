@@ -11,11 +11,11 @@ namespace TryCSharp.Tools.Cui
         /// <summary>
         /// 終了文字
         /// </summary>
-        public const string EXIT_PHASE = "EXIT";
+        private const string EXIT_PHASE = "EXIT";
         /// <summary>
         /// 終了文字
         /// </summary>
-        public const string QUIT_PHASE = "QUIT";
+        private const string QUIT_PHASE = "QUIT";
 
         /// <summary>
         /// 終了文字か否かを検証します。
