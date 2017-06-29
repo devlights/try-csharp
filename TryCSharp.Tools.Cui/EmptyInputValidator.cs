@@ -12,9 +12,6 @@ namespace TryCSharp.Tools.Cui
         /// </summary>
         /// <param name="value">対象データ</param>
         /// <returns>空文字の場合はTrue, それ以外はFalse.</returns>
-        public bool Validate(string value)
-        {
-            return string.IsNullOrWhiteSpace(value);
-        }
+        public bool Validate(string value) => string.IsNullOrWhiteSpace(value);
     }
 }

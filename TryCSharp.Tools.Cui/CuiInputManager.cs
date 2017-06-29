@@ -15,11 +15,7 @@ namespace TryCSharp.Tools.Cui
         /// <remarks>
         /// コンソールから文字を読み込んでいるので、戻り値の型はintになります。
         /// </remarks>
-        public object Read()
-        {
-            // ReSharper disable once HeapView.BoxingAllocation
-            return Console.Read();
-        }
+        public object Read() => Console.Read();
 
         /// <summary>
         /// 一行分のデータを読み込みます。
@@ -28,9 +24,6 @@ namespace TryCSharp.Tools.Cui
         /// <remarks>
         /// コンソールから文字列を読み込んでいるので、戻り値の型はstringになります。
         /// </remarks>
-        public object ReadLine()
-        {
-            return Console.ReadLine();
-        }
+        public object ReadLine() => Console.ReadLine();
     }
 }
