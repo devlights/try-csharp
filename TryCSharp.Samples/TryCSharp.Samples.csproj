@@ -146,6 +146,7 @@
     <Compile Include="Commons\Extensions\StringExtensions.cs" />
     <Compile Include="CSharp6\AutoPropSamples01.cs" />
     <Compile Include="CSharp6\ExpressionBodySamples01.cs" />
+    <Compile Include="CSharp6\UsingStaticSamples01.cs" />
     <Compile Include="Dummy.cs" />
     <Compile Include="Helpers\CompareResultHelper.cs" />
     <Compile Include="IO\GetInvalidPathCharsAndGetInvalidFileNameCharsSamples01.cs" />
