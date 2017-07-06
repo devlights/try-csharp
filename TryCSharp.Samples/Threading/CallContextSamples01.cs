@@ -87,12 +87,12 @@ namespace TryCSharp.Samples.Threading
 
             Output.WriteLine(
                 "Thread: {0, -15}, Id: {1}, Message: {2}"
-                , data.Name
+                , data?.Name
                 , Thread.CurrentThread.ManagedThreadId
                 , CallContext.LogicalGetData("Message")
             );
 
-            data.Counter.Signal();
+            data?.Counter.Signal();
         }
 
         #region Inner Classes

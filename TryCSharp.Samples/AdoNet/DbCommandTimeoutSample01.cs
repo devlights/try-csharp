@@ -1,6 +1,7 @@
 ﻿using System.Data.Common;
 using System.Diagnostics;
 using TryCSharp.Common;
+// ReSharper disable PossibleNullReferenceException
 
 namespace TryCSharp.Samples.AdoNet
 {

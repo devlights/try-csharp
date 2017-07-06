@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using TryCSharp.Common;
+// ReSharper disable PossibleNullReferenceException
 
 namespace TryCSharp.Samples.Linq
 {

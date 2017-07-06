@@ -129,14 +129,14 @@ namespace TryCSharp.Samples.Threading
             // 処理開始と共に、CountdownEventの内部カウントをインクリメント.
             //
             var cde = data as CountdownEvent;
-            cde.AddCount();
+            cde?.AddCount();
 
             Thread.Sleep(TimeSpan.FromSeconds(new Random().Next(10)));
 
             //
             // 内部カウントをデクリメント.
             //
-            cde.Signal();
+            cde?.Signal();
         }
     }
 }

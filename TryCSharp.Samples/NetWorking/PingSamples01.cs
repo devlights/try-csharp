@@ -1,6 +1,7 @@
 ﻿using System.Net.NetworkInformation;
 using System.Threading;
 using TryCSharp.Common;
+// ReSharper disable PossibleNullReferenceException
 
 namespace TryCSharp.Samples.NetWorking
 {
@@ -34,7 +35,6 @@ namespace TryCSharp.Samples.NetWorking
             // 非同期での送信.
             //
             hostName = "www.google.com";
-            object userToken = null;
 
             p.PingCompleted += (s, e) =>
             {
@@ -59,7 +59,7 @@ namespace TryCSharp.Samples.NetWorking
                 Output.WriteLine("Ping.SendAsync() Success.");
             };
 
-            p.SendAsync(hostName, timeOut, userToken);
+            p.SendAsync(hostName, timeOut, null);
             Thread.Sleep(3000);
         }
     }

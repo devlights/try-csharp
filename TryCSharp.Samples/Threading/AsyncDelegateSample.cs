@@ -31,7 +31,7 @@ namespace TryCSharp.Samples.Threading
             invoker.BeginInvoke(ar =>
                 {
                     var caller = ar.AsyncState as MethodInvoker;
-                    caller.EndInvoke(ar);
+                    caller?.EndInvoke(ar);
                     Output.WriteLine("[DELE] END. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
                 },
                 invoker

@@ -109,7 +109,7 @@ namespace TryCSharp.Samples.Advanced
                     }
                 };
 
-                _btn.Click += (s, e) => { (_btn.Tag as CancellationTokenSource).Cancel(); };
+                _btn.Click += (s, e) => { (_btn.Tag as CancellationTokenSource)?.Cancel(); };
             }
 
             async Task Compress(CancellationToken token, IProgress<ProgressMessage> progress)

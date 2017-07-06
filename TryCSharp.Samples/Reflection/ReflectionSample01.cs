@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using TryCSharp.Common;
+// ReSharper disable PossibleNullReferenceException
 
 namespace TryCSharp.Samples.Reflection
 {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using TryCSharp.Common;
+// ReSharper disable PossibleNullReferenceException
 
 namespace TryCSharp.Samples.Threading
 {

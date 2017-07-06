@@ -78,7 +78,7 @@ namespace TryCSharp.Samples.Threading
             // 既に3つ終了しているか否かを確認し、まだならシグナル.
             //
             var cde = data as CountdownEvent;
-            if (!cde.IsSet)
+            if (cde != null && !cde.IsSet)
             {
                 cde.Signal();
                 Output.WriteLine("＊＊＊カウントをデクリメント＊＊＊ Task ID={0} CountdownEvent.CurrentCount={1}", Task.CurrentId, cde.CurrentCount);

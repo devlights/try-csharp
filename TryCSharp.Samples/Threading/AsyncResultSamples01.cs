@@ -30,13 +30,13 @@ namespace TryCSharp.Samples.Threading
         private void CallbackMethod(IAsyncResult ar)
         {
             var result = ar as AsyncResult;
-            var caller = result.AsyncDelegate as Func<DateTime, string>;
-            var handle = result.AsyncState as EventWaitHandle;
+            var caller = result?.AsyncDelegate as Func<DateTime, string>;
+            var handle = result?.AsyncState as EventWaitHandle;
 
-            if (!result.EndInvokeCalled)
+            if (result != null && !result.EndInvokeCalled)
             {
-                Output.WriteLine(caller.EndInvoke(result));
-                handle.Set();
+                Output.WriteLine(caller?.EndInvoke(result));
+                handle?.Set();
             }
         }
     }

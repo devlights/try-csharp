@@ -77,7 +77,7 @@ namespace TryCSharp.Samples.Threading
         {
             Thread.Sleep(TimeSpan.FromSeconds(1));
             Output.Write("*** シグナル状態に設定 *** ");
-            (stateObj as ManualResetEventSlim).Set();
+            (stateObj as ManualResetEventSlim)?.Set();
         }
     }
 }

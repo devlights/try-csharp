@@ -46,7 +46,7 @@ namespace TryCSharp.Samples.Advanced
         private void AppDomain_Unload(object sender, EventArgs e)
         {
             var domain = sender as AppDomain;
-            Output.WriteLine("AppDomain.Unload: {0}", domain.FriendlyName);
+            Output.WriteLine("AppDomain.Unload: {0}", domain?.FriendlyName);
         }
 
         private void AppDomain_ProcessExit(object sender, EventArgs e)
@@ -67,7 +67,7 @@ namespace TryCSharp.Samples.Advanced
             //Thread.Sleep(TimeSpan.FromSeconds(3));
 
             var domain = sender as AppDomain;
-            Output.WriteLine("AppDomain.ProcessExit: {0}", domain.FriendlyName);
+            Output.WriteLine("AppDomain.ProcessExit: {0}", domain?.FriendlyName);
         }
     }
 }

@@ -171,6 +171,10 @@ namespace TryCSharp.Samples.Advanced
             public void GetObjectData(object obj, SerializationInfo info, StreamingContext context)
             {
                 var targetObj = obj as CanNotSerialize;
+                if (targetObj == null)
+                {
+                    return;
+                }
 
                 //
                 // シリアライズする項目と値を以下のようにinfoに設定していく.
@@ -184,6 +188,10 @@ namespace TryCSharp.Samples.Advanced
                 ISurrogateSelector selector)
             {
                 var targetObj = obj as CanNotSerialize;
+                if (targetObj == null)
+                {
+                    return null;
+                }
 
                 //
                 // infoから値を取得し、対象となるオブジェクトに設定.

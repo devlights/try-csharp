@@ -94,8 +94,8 @@ namespace TryCSharp.Samples.Reflection.Emit
             // 14.実行.
             //
             var propInfo = type.GetProperty("Message");
-            propInfo.SetValue(withPropObj, "HelloWorld", null);
-            Output.WriteLine(propInfo.GetValue(withPropObj, null));
+            propInfo?.SetValue(withPropObj, "HelloWorld", null);
+            Output.WriteLine(propInfo?.GetValue(withPropObj, null));
             //
             // 15.(option) 作成したアセンブリを保存.
             //
