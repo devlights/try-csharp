@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryCSharp.Common", "TryCSha
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryCSharp.Samples", "TryCSharp.Samples\TryCSharp.Samples.csproj", "{AAA96837-1A13-468F-8B21-14FD0F0F2839}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryCSharp.DotNetCore2.Tutorial", "TryCSharp.DotNetCore2.Tutorial\TryCSharp.DotNetCore2.Tutorial.csproj", "{622371B9-B493-4E34-87F0-1D57D82B6BDD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{AAA96837-1A13-468F-8B21-14FD0F0F2839}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAA96837-1A13-468F-8B21-14FD0F0F2839}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAA96837-1A13-468F-8B21-14FD0F0F2839}.Release|Any CPU.Build.0 = Release|Any CPU
+		{622371B9-B493-4E34-87F0-1D57D82B6BDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{622371B9-B493-4E34-87F0-1D57D82B6BDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{622371B9-B493-4E34-87F0-1D57D82B6BDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{622371B9-B493-4E34-87F0-1D57D82B6BDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
