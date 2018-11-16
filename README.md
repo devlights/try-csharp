@@ -1,5 +1,5 @@
 # try-csharp
-This is my TUTORIAL project for csharp. (.NET Framework and Mono)
+This is my TUTORIAL project for csharp. (.NET Framework and Mono and dotnet core)
 
 # IDE
 - JetBrains Rider
