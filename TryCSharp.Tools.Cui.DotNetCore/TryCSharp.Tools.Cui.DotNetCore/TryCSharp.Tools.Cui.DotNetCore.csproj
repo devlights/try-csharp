@@ -5,6 +5,7 @@
         <TargetFramework>netcoreapp2.1</TargetFramework>
         <RootNamespace>TryCSharp.Tools.Cui</RootNamespace>
         <LangVersion>latest</LangVersion>
+        <AssemblyName>TryCSharp.Tools.Cui</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>
