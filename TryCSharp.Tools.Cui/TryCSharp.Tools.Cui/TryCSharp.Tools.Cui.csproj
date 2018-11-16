@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp2.1</TargetFramework>
+        <RootNamespace>TryCSharp.Tools.Cui</RootNamespace>
+        <LangVersion>latest</LangVersion>
+        <AssemblyName>TryCSharp.Tools.Cui</AssemblyName>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\TryCSharp.Common\TryCSharp.Common\TryCSharp.Common.csproj" />
+      <ProjectReference Include="..\..\TryCSharp.Samples\TryCSharp.Samples\TryCSharp.Samples.csproj" />
+    </ItemGroup>
+
+</Project>
