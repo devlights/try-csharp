@@ -9,8 +9,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\TryCSharp.Common\TryCSharp.Common\TryCSharp.Common.csproj" />
-      <ProjectReference Include="..\..\TryCSharp.Samples\TryCSharp.Samples\TryCSharp.Samples.csproj" />
+      <ProjectReference Include="..\TryCSharp.Common\TryCSharp.Common.csproj" />
+      <ProjectReference Include="..\TryCSharp.Samples\TryCSharp.Samples.csproj" />
     </ItemGroup>
 
 </Project>
