@@ -24,7 +24,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\TryCSharp.Common\TryCSharp.Common\TryCSharp.Common.csproj" />
+      <ProjectReference Include="..\TryCSharp.Common\TryCSharp.Common.csproj" />
     </ItemGroup>
     
 </Project>
