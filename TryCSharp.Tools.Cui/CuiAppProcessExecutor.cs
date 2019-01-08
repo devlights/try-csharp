@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using TryCSharp.Common;
 
 namespace TryCSharp.Tools.Cui
@@ -42,7 +43,7 @@ namespace TryCSharp.Tools.Cui
         /// 非同期実行します。
         /// </summary>
         /// <param name="target">実行可能なもの</param>
-        public void Execute(IAsyncExecutable target)
+        public async Task Execute(IAsyncExecutable target)
         {
             if (target == null)
             {
@@ -53,10 +54,17 @@ namespace TryCSharp.Tools.Cui
             {
                 Output.WriteLine(this.StartLogMessage);
 
-                var success = target.Execute().Wait(TimeSpan.FromSeconds(15));
-                if (!success)
+                var t = Task.Run(async () =>
                 {
-                    Output.WriteLine("time out.....");
+                    Output.WriteLine("[Async] **** BEGIN ****");
+                    await target.Execute();
+                    Output.WriteLine("[Async] ****  END  ****");
+                });
+                
+                var timeout = Task.Delay(TimeSpan.FromSeconds(15));
+                if (await Task.WhenAny(t, timeout) == timeout)
+                {
+                    Output.WriteLine("**** TIMEOUT ****");
                 }
 
                 Output.WriteLine(this.EndLogMessage);

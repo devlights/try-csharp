@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 using TryCSharp.Common;
 using TryCSharp.Samples;
 
@@ -20,7 +21,7 @@ namespace TryCSharp.Tools.Cui
             ClassName = string.Empty;
         }
 
-        private static void Main()
+        private static async Task Main()
         {
             try
             {
@@ -93,22 +94,27 @@ namespace TryCSharp.Tools.Cui
                             continue;
                         }
 
-                        // FIXME: 以下の処理がダサい。そのうち直す。
                         var executor = new CuiAppProcessExecutor();
-                        var target = clazz as IExecutable;
-                        if (target != null)
+                        switch (clazz)
                         {
-                            executor.Execute(target);                            
-                        }
-                        else
-                        {
-                            var asyncTarget = clazz as IAsyncExecutable;
-                            executor.Execute(asyncTarget);
+                            case IExecutable target:
+                            {
+                                executor.Execute(target);
+                                break;
+                            }
+                            case IAsyncExecutable asyncTarget:
+                            {
+                                await executor.Execute(asyncTarget);
+                                break;
+                            }
+                            default:
+                                Output.WriteLine($"**** INVALID SAMPLE TYPE **** [{clazz.GetType().FullName}]");
+                                break;
                         }
                     }
                     catch (TypeLoadException)
                     {
-                        Output.WriteLine("not found...[{0}]", ClassName);
+                        Output.WriteLine($"**** NOT FOUND **** [{ClassName}]");
                     }
                     catch (Exception ex)
                     {
