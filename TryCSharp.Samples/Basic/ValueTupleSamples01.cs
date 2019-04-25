@@ -6,6 +6,11 @@ namespace TryCSharp.Samples.Basic
     /// <summary>
     /// ValueTuple についてのサンプルです。
     /// </summary>
+    /// <remarks>
+    /// REFERENCES:: http://bit.ly/2L39RFZ
+    ///              http://bit.ly/2KXgLwu
+    ///              http://bit.ly/2L2okSN
+    /// </remarks>
     [Sample]
     public class ValueTupleSamples01 : IExecutable
     {
