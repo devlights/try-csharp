@@ -21,8 +21,9 @@ namespace TryCSharp.Tools.Cui
             ClassName = string.Empty;
         }
 
-        private static async Task Main()
+        private static async Task Main(string[] args)
         {
+            var onetime = args.Contains("--onetime");
             try
             {
                 Input.InputManager = new CuiInputManager();
@@ -102,14 +103,21 @@ namespace TryCSharp.Tools.Cui
                                 executor.Execute(target);
                                 break;
                             }
+
                             case IAsyncExecutable asyncTarget:
                             {
                                 await executor.Execute(asyncTarget);
                                 break;
                             }
+
                             default:
                                 Output.WriteLine($"**** INVALID SAMPLE TYPE **** [{clazz.GetType().FullName}]");
                                 break;
+                        }
+
+                        if (onetime)
+                        {
+                            break;
                         }
                     }
                     catch (TypeLoadException)
@@ -124,8 +132,15 @@ namespace TryCSharp.Tools.Cui
             }
             finally
             {
-                Output.WriteLine("\n\nPress any key to exit...");
-                Input.Read();
+                if (onetime)
+                {
+                    Output.WriteLine("\n\nONE-TIME execution was done.");
+                }
+                else
+                {
+                    Output.WriteLine("\n\nPress any key to exit...");
+                    Input.Read();
+                }
             }
         }
 
