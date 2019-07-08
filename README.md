@@ -8,6 +8,20 @@ This is my TUTORIAL project for csharp. (dotnet core)
 - JetBrains Rider
 - Microsoft VisualStudio
 
-# Run
+# Run (IDE)
 + set TryCSharp.Tools.Cui project as 'startup project'
 + run onto IDE
+
+# Run (CLI)
+
+```sh
+$ cd TryCSharp.Tools.Cui
+$ dotnet run
+```
+
+or 
+
+```sh
+$ cd TryCSharp.Tools.Cui
+$ dotnet run --onetime
+```
