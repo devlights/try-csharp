@@ -9,7 +9,7 @@ namespace TryCSharp.Samples.CSharp7
     /// Numeric Literal について
     /// </remarks>
     [Sample]
-    public class NumericLiteralSamples01 : IExecutable
+    public class NumericLiteral : IExecutable
     {
         public void Execute()
         {

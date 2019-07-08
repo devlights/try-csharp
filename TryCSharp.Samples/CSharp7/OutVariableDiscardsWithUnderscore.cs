@@ -4,7 +4,7 @@ using TryCSharp.Common;
 namespace TryCSharp.Samples.CSharp7
 {
     [Sample]
-    public class OutVariableDiscardsWithUnderscoreSamples01 : IExecutable
+    public class OutVariableDiscardsWithUnderscore : IExecutable
     {
         public void Execute()
         {
