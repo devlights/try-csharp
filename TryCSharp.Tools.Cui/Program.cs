@@ -21,8 +21,9 @@ namespace TryCSharp.Tools.Cui
             ClassName = string.Empty;
         }
 
-        private static async Task Main()
+        private static async Task Main(string[] args)
         {
+            var onetime = args.Contains("--onetime");
             try
             {
                 Input.InputManager = new CuiInputManager();
@@ -34,99 +35,127 @@ namespace TryCSharp.Tools.Cui
                 var typeFullNameList = GetAssembly().GetExportedTypes().Select(x => x.FullName).ToList();
                 for (;;)
                 {
-                    try
+                    if (await Execute(emptyValidator, exitValidator, typeFullNameList, onetime))
                     {
-                        Output.Write("\nENTER CLASS NAME: ");
-
-                        var userInput = Input.ReadLine().ToString();
-                        if (emptyValidator.Validate(userInput))
-                        {
-                            continue;
-                        }
-
-                        if (exitValidator.Validate(userInput))
-                        {
-                            break;
-                        }
-
-                        var optInfo = new Dictionary<string, bool>
-                        {
-                            {"fullMatched", false}
-                        };
-
-                        var filtered = typeFullNameList.Where(x =>
-                        {
-                            var fqdn = x.ToLower();
-                            var inp = userInput.ToLower();
-
-                            var fullMatch = fqdn.Split('.').Last() == inp;
-                            if (fullMatch)
-                            {
-                                optInfo["fullMatched"] = true;
-                            }
-
-                            return fqdn.Contains(inp);
-                        }).ToList();
-
-                        if (filtered.Count == 0)
-                        {
-                            Output.WriteLine("not found...[{0}]", userInput);
-                            continue;
-                        }
-
-                        if (!optInfo["fullMatched"])
-                        {
-                            if (filtered.Count > 1)
-                            {
-                                Output.WriteLine("There are multiple candidates.");
-                                foreach (var item in filtered)
-                                {
-                                    Output.WriteLine("**** {0}", item);
-                                }
-
-                                continue;
-                            }
-                        }
-
-                        var clazz = GetInstance(filtered.First());
-                        if (clazz == null)
-                        {
-                            continue;
-                        }
-
-                        var executor = new CuiAppProcessExecutor();
-                        switch (clazz)
-                        {
-                            case IExecutable target:
-                            {
-                                executor.Execute(target);
-                                break;
-                            }
-                            case IAsyncExecutable asyncTarget:
-                            {
-                                await executor.Execute(asyncTarget);
-                                break;
-                            }
-                            default:
-                                Output.WriteLine($"**** INVALID SAMPLE TYPE **** [{clazz.GetType().FullName}]");
-                                break;
-                        }
-                    }
-                    catch (TypeLoadException)
-                    {
-                        Output.WriteLine($"**** NOT FOUND **** [{ClassName}]");
-                    }
-                    catch (Exception ex)
-                    {
-                        Output.WriteLine(ex.ToString());
+                        break;                        
                     }
                 }
             }
             finally
             {
-                Output.WriteLine("\n\nPress any key to exit...");
-                Input.Read();
+                if (onetime)
+                {
+                    Output.WriteLine("\n\nONE-TIME execution was done.");
+                }
+                else
+                {
+                    Output.WriteLine("\n\nPress any key to exit...");
+                    Input.Read();
+                }
             }
+        }
+
+        private static async Task<bool> Execute(
+            EmptyInputValidator emptyValidator, 
+            ExitPhaseValidator exitValidator,
+            List<string> typeFullNameList, 
+            bool onetime)
+        {
+            try
+            {
+                Output.Write("\nENTER CLASS NAME: ");
+
+                var userInput = Input.ReadLine().ToString();
+                if (emptyValidator.Validate(userInput))
+                {
+                    return false;
+                }
+
+                if (exitValidator.Validate(userInput))
+                {
+                    return true;
+                }
+
+                var optInfo = new Dictionary<string, bool>
+                {
+                    {"fullMatched", false}
+                };
+
+                var filtered = typeFullNameList.Where(x =>
+                {
+                    var fqdn = x.ToLower();
+                    var inp = userInput.ToLower();
+
+                    var fullMatch = fqdn.Split('.').Last() == inp;
+                    if (fullMatch)
+                    {
+                        optInfo["fullMatched"] = true;
+                    }
+
+                    return fqdn.Contains(inp);
+                }).ToList();
+
+                if (filtered.Count == 0)
+                {
+                    Output.WriteLine("not found...[{0}]", userInput);
+                    return false;
+                }
+
+                if (!optInfo["fullMatched"])
+                {
+                    if (filtered.Count > 1)
+                    {
+                        Output.WriteLine("There are multiple candidates.");
+                        foreach (var item in filtered)
+                        {
+                            Output.WriteLine("**** {0}", item);
+                        }
+
+                        return false;
+                    }
+                }
+
+                var clazz = GetInstance(filtered.First());
+                if (clazz == null)
+                {
+                    return false;
+                }
+
+                var executor = new CuiAppProcessExecutor();
+                switch (clazz)
+                {
+                    case IExecutable target:
+                    {
+                        executor.Execute(target);
+                        break;
+                    }
+
+                    case IAsyncExecutable asyncTarget:
+                    {
+                        await executor.Execute(asyncTarget);
+                        break;
+                    }
+
+                    default:
+                        Output.WriteLine($"**** INVALID SAMPLE TYPE **** [{clazz.GetType().FullName}]");
+                        break;
+                }
+
+                if (onetime)
+                {
+                    return true;
+                }
+            }
+            catch (TypeLoadException)
+            {
+                Output.WriteLine($"**** NOT FOUND **** [{ClassName}]");
+            }
+            catch (Exception ex)
+            {
+                Output.WriteLine(ex.ToString());
+            }
+
+            return false;
         }
 
         private static Assembly GetAssembly()
