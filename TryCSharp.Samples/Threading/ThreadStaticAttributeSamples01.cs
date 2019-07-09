@@ -29,7 +29,7 @@ namespace TryCSharp.Samples.Threading
             threads.ForEach(thread => { thread.Join(); });
         }
 
-        private class ThreadState
+        private static class ThreadState
         {
             /// <summary>
             ///     各スレッド毎に固有の値を持つフィールド.

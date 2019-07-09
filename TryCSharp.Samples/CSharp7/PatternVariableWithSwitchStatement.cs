@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using TryCSharp.Common;
 
 namespace TryCSharp.Samples.CSharp7
@@ -15,6 +16,8 @@ namespace TryCSharp.Samples.CSharp7
             this.SwitchWithPattern(null);
         }
 
+        [SuppressMessage("ReSharper", "RedundantBoolCompare")]
+        [SuppressMessage("ReSharper", "RedundantStringInterpolation")]
         private void SwitchWithPattern(object x)
         {
             // 型で振り分け

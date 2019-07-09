@@ -119,6 +119,7 @@ namespace TryCSharp.Samples.Threading
 
         #region Fields
 
+        // ReSharper disable once ThreadStaticAtInstanceField
         [ThreadStatic] private int count3 = 2;
 
         private readonly ThreadLocal<int> count4 = new ThreadLocal<int>(() => 4);
