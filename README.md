@@ -1,12 +1,13 @@
 # try-csharp
 This is my TUTORIAL project for csharp. (dotnet core)
 
-![try-csharp - DotNet Version](https://img.shields.io/badge/dotnetcore-2.2-blue.svg)
+![try-csharp - DotNet Version](https://img.shields.io/badge/dotnetcore-3.1-blue.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/devlights/try-csharp/badge)](https://www.codefactor.io/repository/github/devlights/try-csharp)
 
-# IDE
+# Editor
 - JetBrains Rider
 - Microsoft VisualStudio
+- Visual Studio Code
 
 # Run (IDE)
 + set TryCSharp.Tools.Cui project as 'startup project'
