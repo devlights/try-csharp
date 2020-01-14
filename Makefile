@@ -18,7 +18,7 @@ all: clean build test
 
 .PHONY: build
 build:
-	$(DOTNETBUILD)
+	$(DOTNETBUILD) --nologo -v q
 
 .PHONY: test
 test:
