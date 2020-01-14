@@ -26,3 +26,9 @@ or
 $ cd TryCSharp.Tools.Cui
 $ dotnet run --onetime
 ```
+
+or
+
+```sh
+$ make run
+```
