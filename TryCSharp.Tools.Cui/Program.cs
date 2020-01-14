@@ -24,33 +24,19 @@ namespace TryCSharp.Tools.Cui
         private static async Task Main(string[] args)
         {
             var onetime = args.Contains("--onetime");
-            try
-            {
-                Input.InputManager = new CuiInputManager();
-                Output.OutputManager = new CuiOutputManager();
 
-                var emptyValidator = new EmptyInputValidator();
-                var exitValidator = new ExitPhaseValidator();
+            Input.InputManager = new CuiInputManager();
+            Output.OutputManager = new CuiOutputManager();
 
-                var typeFullNameList = GetAssembly().GetExportedTypes().Select(x => x.FullName).ToList();
-                for (;;)
-                {
-                    if (await Execute(emptyValidator, exitValidator, typeFullNameList, onetime))
-                    {
-                        break;                        
-                    }
-                }
-            }
-            finally
+            var emptyValidator = new EmptyInputValidator();
+            var exitValidator = new ExitPhaseValidator();
+
+            var typeFullNameList = GetAssembly().GetExportedTypes().Select(x => x.FullName).ToList();
+            for (;;)
             {
-                if (onetime)
+                if (await Execute(emptyValidator, exitValidator, typeFullNameList, onetime))
                 {
-                    Output.WriteLine("\n\nONE-TIME execution was done.");
-                }
-                else
-                {
-                    Output.WriteLine("\n\nPress any key to exit...");
-                    Input.Read();
+                    break;                        
                 }
             }
         }
