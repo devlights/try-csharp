@@ -2,3 +2,7 @@ tasks:
   - init: make
 image:
   file: .gitpod.Dockerfile
+
+vscode:
+  extensions:
+    - ms-vscode.csharp@1.21.11:D9vI3thY0Mzf74sFaJwqvQ==
