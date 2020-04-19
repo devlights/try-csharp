@@ -26,5 +26,9 @@
     <ItemGroup>
       <ProjectReference Include="..\TryCSharp.Common\TryCSharp.Common.csproj" />
     </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.Threading.Channels" Version="4.7.0" />
+    </ItemGroup>
     
 </Project>

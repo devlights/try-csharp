@@ -6,6 +6,7 @@ using TryCSharp.Common;
 
 namespace TryCSharp.Samples.Async
 {
+    [Sample]
     public class DirWalkRecursiveAsync : IAsyncExecutable
     {
         public async Task Execute()
