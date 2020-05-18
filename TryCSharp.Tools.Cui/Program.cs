@@ -42,9 +42,9 @@ namespace TryCSharp.Tools.Cui
         }
 
         private static async Task<bool> Execute(
-            EmptyInputValidator emptyValidator, 
-            ExitPhaseValidator exitValidator,
-            List<string> typeFullNameList, 
+            IHasValidation<string> emptyValidator, 
+            IHasValidation<string> exitValidator,
+            IEnumerable<string> typeFullNameList, 
             bool onetime)
         {
             try
@@ -52,6 +52,11 @@ namespace TryCSharp.Tools.Cui
                 Output.Write("\nENTER CLASS NAME: ");
 
                 var userInput = Input.ReadLine().ToString();
+                if (userInput == null)
+                {
+                    return false;
+                }
+                
                 if (emptyValidator.Validate(userInput))
                 {
                     return false;

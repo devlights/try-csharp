@@ -33,6 +33,7 @@ namespace TryCSharp.Tools.Cui
 
             using (new TimeTracer())
             {
+                Output.WriteLine($"[EXAMPLE] {target.GetType().Name}");
                 Output.WriteLine(this.StartLogMessage);
                 target.Execute();
                 Output.WriteLine(this.EndLogMessage);
@@ -52,6 +53,7 @@ namespace TryCSharp.Tools.Cui
 
             using (new TimeTracer())
             {
+                Output.WriteLine($"[EXAMPLE] {target.GetType().Name}");
                 Output.WriteLine(this.StartLogMessage);
 
                 var t = Task.Run(async () =>
