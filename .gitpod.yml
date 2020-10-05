@@ -1,11 +1,2 @@
-tasks:
-  - init: go env -w GO111MODULE=off &&
-          go get github.com/devlights/mkghurl &&
-          go env -u GO111MODULE
-    command: if [ -n "$GITHUB_TOKEN" ]; then git remote set-url origin $(mkghurl try-csharp); fi && dotnet --version
 image:
   file: .gitpod.Dockerfile
-
-vscode:
-  extensions:
-    - ms-vscode.csharp@1.21.11:D9vI3thY0Mzf74sFaJwqvQ==
