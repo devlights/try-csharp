@@ -18,6 +18,7 @@ all: clean build test
 
 .PHONY: build
 build:
+	$(DOTNETCMD) restore -v q
 	$(DOTNETBUILD) --nologo -v q
 
 .PHONY: test
@@ -30,5 +31,6 @@ clean:
 
 .PHONY: run
 run: clean
+	$(DOTNETCMD) restore -v q
 	$(DOTNETRUN) --project $(CUI_PROJ_PATH) --onetime
 
