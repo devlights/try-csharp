@@ -10,13 +10,18 @@ namespace TryCSharp.Samples.Advanced
     ///     シリアライズに関するサンプルです。
     /// </summary>
     /// <remarks>
-    ///     シリアル化サロゲートについて。 (ISerializationSurrogate)
+    /// シリアル化サロゲートについて。 (ISerializationSurrogate)
+    ///
+    /// 本サンプルは .NET 5.0 では使用できません。（BinaryFormatterが非推奨扱いになっているため)
+    /// 詳細については、以下に記載があります。
+    ///   - https://docs.microsoft.com/ja-jp/dotnet/standard/serialization/binaryformatter-security-guide
     /// </remarks>
     [Sample]
     public class SerializationSurrogateSamples01 : IExecutable
     {
         public void Execute()
         {
+#if ENABLE_OLD_NET_FEATURE
             //
             // 普通のシリアライズ処理.
             //
@@ -96,6 +101,7 @@ namespace TryCSharp.Samples.Advanced
                     Output.WriteLine("[ERROR]: {0}", ex.Message);
                 }
             }
+#endif
         }
 
         private IHasNameAndAge MakeSerializableObject()

@@ -1,1 +1,6 @@
+
 image: gitpod/workspace-dotnet
+
+vscode:
+  extensions:
+    - muhammad-sammy.csharp

@@ -7,6 +7,11 @@ namespace TryCSharp.Samples.Advanced
     /// <summary>
     ///     RuntimeHelpersクラスのサンプルです。
     /// </summary>
+    /// <remarks>
+    /// 本サンプルは .NET 5.0 では使用できません。（CERが非推奨扱いになっているため)
+    /// 詳細については、以下に記載があります。
+    ///   - https://docs.microsoft.com/ja-jp/dotnet/core/compatibility/syslib-warnings/syslib0004
+    /// </remarks>
     [Sample]
     public class RuntimeHelpersSamples03 : IExecutable
     {
@@ -27,7 +32,9 @@ namespace TryCSharp.Samples.Advanced
             // public delegate void CleanupCode(object userData, bool exceptionThrown)
             //
             // 前回のサンプルと同じ動作を行う.
+#if ENABLE_OLD_NET_FEATURE
             RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(Calc, Cleanup, null);
+#endif
         }
 
         private void Calc(object userData)
@@ -58,7 +65,9 @@ namespace TryCSharp.Samples.Advanced
             // ReliabilityContractAttributeおよびConsistencyやCerは
             // System.Runtime.ConstrainedExecution名前空間に存在する.
             //
+#if ENABLE_OLD_NET_FEATURE
             [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
+#endif
             internal static void Print()
             {
                 Output.WriteLine("SampleClass.Print()");
