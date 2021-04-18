@@ -1,4 +1,5 @@
-﻿using System;
+﻿#pragma warning disable SYSLIB0011
+using System;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -21,7 +22,6 @@ namespace TryCSharp.Samples.Advanced
     {
         public void Execute()
         {
-#if ENABLE_OLD_NET_FEATURE
             //
             // 普通のシリアライズ処理.
             //
@@ -101,7 +101,6 @@ namespace TryCSharp.Samples.Advanced
                     Output.WriteLine("[ERROR]: {0}", ex.Message);
                 }
             }
-#endif
         }
 
         private IHasNameAndAge MakeSerializableObject()
@@ -213,3 +212,4 @@ namespace TryCSharp.Samples.Advanced
         #endregion
     }
 }
+#pragma warning restore SYSLIB0011

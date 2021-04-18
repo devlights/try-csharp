@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿#pragma warning disable SYSLIB0004
+using System.Runtime.CompilerServices;
 using System.Runtime.ConstrainedExecution;
 using TryCSharp.Common;
 
@@ -32,9 +33,7 @@ namespace TryCSharp.Samples.Advanced
             // public delegate void CleanupCode(object userData, bool exceptionThrown)
             //
             // 前回のサンプルと同じ動作を行う.
-#if ENABLE_OLD_NET_FEATURE
             RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(Calc, Cleanup, null);
-#endif
         }
 
         private void Calc(object userData)
@@ -65,9 +64,7 @@ namespace TryCSharp.Samples.Advanced
             // ReliabilityContractAttributeおよびConsistencyやCerは
             // System.Runtime.ConstrainedExecution名前空間に存在する.
             //
-#if ENABLE_OLD_NET_FEATURE
             [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
-#endif
             internal static void Print()
             {
                 Output.WriteLine("SampleClass.Print()");
@@ -75,3 +72,4 @@ namespace TryCSharp.Samples.Advanced
         }
     }
 }
+#pragma warning restore SYSLIB0004

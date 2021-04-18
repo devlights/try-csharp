@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿#pragma warning disable SYSLIB0004
+using System.Runtime.CompilerServices;
 using System.Runtime.ConstrainedExecution;
 using TryCSharp.Common;
 
@@ -32,9 +33,7 @@ namespace TryCSharp.Samples.Advanced
             // すると、try内の本処理よりも先にfinallyブロック内の静的コンストラクタが呼ばれる事になる。
             // (事前コンパイルが行われると、アセンブリのロード、静的コンストラクタの実行などが発生するため)
             //
-#if ENABLE_OLD_NET_FEATURE
             RuntimeHelpers.PrepareConstrainedRegions();
-#endif
 
             try
             {
@@ -77,9 +76,7 @@ namespace TryCSharp.Samples.Advanced
             // 尚、この属性はメソッドだけではなく、クラスやインターフェースにも付与できる。
             // その場合、クラス全体に対して信頼性のコントラクトを付与したことになる。
             //
-#if ENABLE_OLD_NET_FEATURE
             [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
-#endif
             internal static void Print()
             {
                 Output.WriteLine("SampleClass.Print()");
@@ -87,3 +84,4 @@ namespace TryCSharp.Samples.Advanced
         }
     }
 }
+#pragma warning restore SYSLIB0004
