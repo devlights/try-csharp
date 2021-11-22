@@ -17,20 +17,21 @@ CUI_PROJ_PATH=$(CUI_PROJ_NAME)$(SEP)$(CUI_PROJ_NAME).csproj
 all: clean build test
 
 .PHONY: build
-build:
-	$(DOTNETCMD) restore -v q
+build: restore
 	$(DOTNETBUILD) --nologo -v q
 
 .PHONY: test
-test:
+test: restore
 	$(DOTNETTEST)
 
 .PHONY: clean
-clean:
+clean: restore
 	$(DOTNETCLEAN) --nologo -v q
 
 .PHONY: run
 run: clean
-	$(DOTNETCMD) restore -v q
 	$(DOTNETRUN) --project $(CUI_PROJ_PATH) --onetime
 
+.PHONY: restore
+restore:
+	$(DOTNETCMD) restore -v q
