@@ -39,7 +39,7 @@
 	//      "mounts": [ "source=${env:HOME}${env:USERPROFILE}/.aspnet/https,target=/home/vscode/.aspnet/https,type=bind" ],
 	// Use 'postCreateCommand' to run commands after the container is created.
 
-	// "postCreateCommand": "dotnet restore",
+	"postCreateCommand": "make restore",
 	
 	"remoteUser": "vscode",
 	"features": {
