@@ -10,7 +10,8 @@
 	},
 	"settings": {},
 	"extensions": [
-		"ms-dotnettools.csharp"
+		"ms-dotnettools.csharp",
+		"dracula-theme.theme-dracula"
 	],
 	// "forwardPorts": [5000, 5001],
 
