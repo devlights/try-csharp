@@ -10,8 +10,7 @@
 	},
 	"settings": {},
 	"extensions": [
-		"ms-dotnettools.csharp",
-		"dracula-theme.theme-dracula"
+		"ms-dotnettools.csharp"
 	],
 	// "forwardPorts": [5000, 5001],
 
@@ -43,7 +42,8 @@
 	
 	"remoteUser": "vscode",
 	"features": {
-		"docker-from-docker": "20.10",
+		// https://github.com/microsoft/vscode-dev-containers/tree/main/containers/docker-from-docker#using-bind-mounts-when-working-with-docker-inside-the-container
+		"docker-in-docker": "20.10",
 		"golang": "1.17"
 	}
 }
