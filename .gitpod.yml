@@ -1,11 +1,12 @@
 
-image:
-  file: .gitpod.Dockerfile
+image: gitpod/workspace-dotnet-lts:latest
 
 tasks:    
   - name: dotnet version
     init: |
       dotnet --info
+  - name: dotnet restore
+    command: make restore
 
 vscode:
   extensions:
