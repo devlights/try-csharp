@@ -24,6 +24,6 @@ namespace TryCSharp.Tools.Cui
         /// <remarks>
         /// コンソールから文字列を読み込んでいるので、戻り値の型はstringになります。
         /// </remarks>
-        public object ReadLine() => Console.ReadLine();
+        public object ReadLine() => Console.ReadLine()!;
     }
 }

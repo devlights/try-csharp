@@ -31,20 +31,20 @@ namespace TryCSharp.Tools.Cui
             var emptyValidator = new EmptyInputValidator();
             var exitValidator = new ExitPhaseValidator();
 
-            var typeFullNameList = GetAssembly().GetExportedTypes().Select(x => x.FullName).ToList();
-            for (;;)
+            var typeFullNameList = GetAssembly().GetExportedTypes().Select(x => x.FullName!).ToList();
+            for (; ; )
             {
-                if (await Execute(emptyValidator, exitValidator, typeFullNameList, onetime))
+                if (await Execute(emptyValidator, exitValidator, typeFullNameList!, onetime))
                 {
-                    break;                        
+                    break;
                 }
             }
         }
 
         private static async Task<bool> Execute(
-            IHasValidation<string> emptyValidator, 
+            IHasValidation<string> emptyValidator,
             IHasValidation<string> exitValidator,
-            IEnumerable<string> typeFullNameList, 
+            IEnumerable<string> typeFullNameList,
             bool onetime)
         {
             try
@@ -56,7 +56,7 @@ namespace TryCSharp.Tools.Cui
                 {
                     return false;
                 }
-                
+
                 if (emptyValidator.Validate(userInput))
                 {
                     return false;
@@ -116,16 +116,16 @@ namespace TryCSharp.Tools.Cui
                 switch (clazz)
                 {
                     case IExecutable target:
-                    {
-                        executor.Execute(target);
-                        break;
-                    }
+                        {
+                            executor.Execute(target);
+                            break;
+                        }
 
                     case IAsyncExecutable asyncTarget:
-                    {
-                        await executor.Execute(asyncTarget);
-                        break;
-                    }
+                        {
+                            await executor.Execute(asyncTarget);
+                            break;
+                        }
 
                     default:
                         Output.WriteLine($"**** INVALID SAMPLE TYPE **** [{clazz.GetType().FullName}]");
@@ -156,7 +156,19 @@ namespace TryCSharp.Tools.Cui
 
         private static object GetInstance(string target)
         {
-            return GetAssembly().CreateInstance(target);
+            var asm = GetAssembly();
+            if (asm == null)
+            {
+                throw new NullReferenceException("GetAssembly() is null");
+            }
+
+            var obj = asm.CreateInstance(target);
+            if (obj == null)
+            {
+                throw new NullReferenceException("CreateInstance() is null");
+            }
+
+            return obj;
         }
     }
 }
