@@ -11,14 +11,21 @@ namespace TryCSharp.Common
         /// <summary>
         ///     出力管理オブジェクトを取得・設定します。
         /// </summary>
-        public static IOutputManager OutputManager { get; set; }
+        public static IOutputManager? OutputManager { get; set; }
 
         /// <summary>
         ///     出力ストリーム
         /// </summary>
         public static Stream OutStream
         {
-            get { return OutputManager.OutStream; }
+            get
+            {
+                if (OutputManager == null)
+                {
+                    throw new InvalidOperationException("No OutputManager was found. ");
+                }
+                return OutputManager.OutStream;
+            }
         }
 
         /// <summary>
@@ -27,7 +34,10 @@ namespace TryCSharp.Common
         /// <param name="data">データ</param>
         public static void Write(object data)
         {
-            Defence();
+            if (OutputManager == null)
+            {
+                throw new InvalidOperationException("No OutputManager was found. ");
+            }
             OutputManager.Write(data);
         }
 
@@ -38,7 +48,10 @@ namespace TryCSharp.Common
         /// <param name="args">フォーマット引数</param>
         public static void Write(string format, params object[] args)
         {
-            Defence();
+            if (OutputManager == null)
+            {
+                throw new InvalidOperationException("No OutputManager was found. ");
+            }
             OutputManager.Write(string.Format(format, args));
         }
 
@@ -56,7 +69,10 @@ namespace TryCSharp.Common
         /// <param name="data">データ</param>
         public static void WriteLine(object data)
         {
-            Defence();
+            if (OutputManager == null)
+            {
+                throw new InvalidOperationException("No OutputManager was found. ");
+            }
             OutputManager.WriteLine(data);
         }
 
@@ -67,19 +83,11 @@ namespace TryCSharp.Common
         /// <param name="arg">フォーマット引数</param>
         public static void WriteLine(string format, params object[] arg)
         {
-            Defence();
-            OutputManager.WriteLine(string.Format(format, arg));
-        }
-
-        /// <summary>
-        ///     現在のオブジェクトの状態をチェックします。
-        /// </summary>
-        private static void Defence()
-        {
             if (OutputManager == null)
             {
                 throw new InvalidOperationException("No OutputManager was found. ");
             }
+            OutputManager.WriteLine(string.Format(format, arg));
         }
     }
 }

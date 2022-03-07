@@ -10,7 +10,7 @@ namespace TryCSharp.Common
         /// <summary>
         ///     入力管理オブジェクトを取得・設定します。
         /// </summary>
-        public static IInputManager InputManager { get; set; }
+        public static IInputManager? InputManager { get; set; }
 
         /// <summary>
         ///     １データを読み込みます。
@@ -18,7 +18,10 @@ namespace TryCSharp.Common
         /// <returns>読み込まれたデータ</returns>
         public static object Read()
         {
-            Defence();
+            if (InputManager == null)
+            {
+                throw new InvalidOperationException("No InputManager was found.");
+            }
             return InputManager.Read();
         }
 
@@ -28,19 +31,11 @@ namespace TryCSharp.Common
         /// <returns>一行分のデータ</returns>
         public static object ReadLine()
         {
-            Defence();
-            return InputManager.ReadLine();
-        }
-
-        /// <summary>
-        ///     現在のオブジェクトの状態をチェックします。
-        /// </summary>
-        private static void Defence()
-        {
             if (InputManager == null)
             {
                 throw new InvalidOperationException("No InputManager was found.");
             }
+            return InputManager.ReadLine();
         }
     }
 }
