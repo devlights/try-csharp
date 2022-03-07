@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.0.0
-MinimumVisualStudioVersion = 10.0.0.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryCSharp.Common", "TryCSharp.Common\TryCSharp.Common.csproj", "{9A53DD5F-57A3-4C4D-A61F-2FEC01C11AD8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryCSharp.Tools.Cui", "TryCSharp.Tools.Cui\TryCSharp.Tools.Cui.csproj", "{7060350F-296D-44FE-BF9F-D95BA5FD5602}"
