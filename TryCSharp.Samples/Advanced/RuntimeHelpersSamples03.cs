@@ -36,7 +36,7 @@ namespace TryCSharp.Samples.Advanced
             RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(Calc, Cleanup, null);
         }
 
-        private void Calc(object userData)
+        private void Calc(object? userData)
         {
             for (var i = 0; i < 10; i++)
             {
@@ -46,7 +46,7 @@ namespace TryCSharp.Samples.Advanced
             Output.WriteLine("");
         }
 
-        private void Cleanup(object userData, bool exceptionThrown)
+        private void Cleanup(object? userData, bool exceptionThrown)
         {
             SampleClass.Print();
         }

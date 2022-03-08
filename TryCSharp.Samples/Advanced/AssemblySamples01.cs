@@ -23,7 +23,7 @@ namespace TryCSharp.Samples.Advanced
             // これが、そのままVisualStudioで設定するバージョン番号に対応する。
             //
             var asm = GetType().Assembly;
-            var ver = asm.GetName().Version;
+            var ver = asm.GetName().Version!;
 
             Output.WriteLine(ver);
 
