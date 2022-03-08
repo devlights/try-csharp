@@ -18,7 +18,7 @@ namespace TryCSharp.Samples.AdoNet
             // プロバイダー名は、「System.Data.OleDb」となる。
             //
             var factory = DbProviderFactories.GetFactory("System.Data.OleDb");
-            using (var conn = factory.CreateConnection())
+            using (var conn = factory.CreateConnection()!)
             {
                 //
                 // Excel用の接続文字列を構築.
@@ -34,7 +34,7 @@ namespace TryCSharp.Samples.AdoNet
                 // HDR=NOと指定した場合、カラム名はシステム側で自動的に割り振られる。
                 // (F1, F2, F3.....となる)
                 //
-                var builder = factory.CreateConnectionStringBuilder();
+                var builder = factory.CreateConnectionStringBuilder()!;
 
                 builder["Provider"] = "Microsoft.ACE.OLEDB.12.0";
                 builder["Data Source"] = @"C:\Users\gsf\Tmp\Sample.xlsx";

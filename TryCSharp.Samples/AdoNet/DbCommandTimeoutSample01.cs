@@ -14,7 +14,7 @@ namespace TryCSharp.Samples.AdoNet
         public void Execute()
         {
             var factory = DbProviderFactories.GetFactory("System.Data.SqlClient");
-            using (var conn = factory.CreateConnection())
+            using (var conn = factory.CreateConnection()!)
             {
                 conn.ConnectionString = @"User Id=medal;Password=medal;Initial Catalog=Medal;Data Source=.\SQLEXPRESS";
                 conn.Open();
