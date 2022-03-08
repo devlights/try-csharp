@@ -49,8 +49,8 @@ namespace TryCSharp.Samples.Advanced
         private class WithDebuggerDisplayAttr
         {
             public int Id { get; set; }
-            public string Name { get; set; }
-            public string Value { get; set; }
+            public string? Name { get; set; }
+            public string? Value { get; set; }
         }
 
         /// <summary>
@@ -59,8 +59,8 @@ namespace TryCSharp.Samples.Advanced
         private class WithoutDebuggerDisplayAttr
         {
             public int Id { get; set; }
-            public string Name { get; set; }
-            public string Value { get; set; }
+            public string? Name { get; set; }
+            public string? Value { get; set; }
         }
     }
 }

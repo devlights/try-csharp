@@ -127,7 +127,7 @@ namespace TryCSharp.Samples.Advanced
 
         private interface IHasNameAndAge
         {
-            string Name { get; set; }
+            string? Name { get; set; }
             int Age { get; set; }
         }
 
@@ -136,9 +136,9 @@ namespace TryCSharp.Samples.Advanced
         private class CanSerialize : IHasNameAndAge
         {
             private int _age;
-            private string _name;
+            private string? _name;
 
-            public string Name
+            public string? Name
             {
                 get { return _name; }
                 set { _name = value; }
@@ -159,7 +159,7 @@ namespace TryCSharp.Samples.Advanced
         // シリアライズ不可なクラス
         private class CanNotSerialize : IHasNameAndAge
         {
-            public string Name { get; set; }
+            public string? Name { get; set; }
 
             public int Age { get; set; }
 
@@ -190,12 +190,12 @@ namespace TryCSharp.Samples.Advanced
 
             // デシリアライズ時に呼び出されるメソッド.
             public object SetObjectData(object obj, SerializationInfo info, StreamingContext context,
-                ISurrogateSelector selector)
+                ISurrogateSelector? selector)
             {
                 var targetObj = obj as CanNotSerialize;
                 if (targetObj == null)
                 {
-                    return null;
+                    return new object();
                 }
 
                 //
@@ -205,7 +205,8 @@ namespace TryCSharp.Samples.Advanced
                 targetObj.Age = info.GetInt32("Age");
 
                 // Formatterは, この戻り値を無視するので戻り値はnullで良い.
-                return null;
+                // C# 8.0 からの Nullable Reference Types の仕様によりnullを返却できないので object を返しておく.
+                return new object();
             }
         }
 

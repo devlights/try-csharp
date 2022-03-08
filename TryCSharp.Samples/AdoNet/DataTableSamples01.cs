@@ -12,8 +12,9 @@ namespace TryCSharp.Samples.AdoNet
         public void Execute()
         {
             var table = new DataTable();
-
-            table.Columns.Add("Val", typeof(decimal));
+            {
+                table.Columns.Add("Val", typeof(decimal));
+            }
 
             for (var i = 0; i < 10; i++)
             {

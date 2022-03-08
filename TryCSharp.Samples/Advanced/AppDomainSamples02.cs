@@ -11,6 +11,12 @@ namespace TryCSharp.Samples.Advanced
     {
         public void Execute()
         {
+            throw new NotSupportedException("AppDomain.CreateDomain(string) が非推奨になったため");
+            // AppDomain.CreateDomain(string) は非推奨となったのでこのサンプル自体を無効にする
+            //   - https://stackoverflow.com/questions/27266907/no-appdomains-in-net-core-why
+            //   - https://devblogs.microsoft.com/dotnet/porting-to-net-core/
+            // 以下のサンプルは .NET Framework 時代では動いていたけど、今現在 (.NET 6) では使えない.
+            /*
             var defaultDomain = AppDomain.CurrentDomain;
             var anotherDomain = AppDomain.CreateDomain("AnotherAppDomain");
 
@@ -41,16 +47,17 @@ namespace TryCSharp.Samples.Advanced
             // 以下をコメントアウトすると、ProcessExitイベントが発生する.
             //
             //AppDomain.Unload(anotherDomain);
+            */
         }
 
-        private void AppDomain_Unload(object sender, EventArgs e)
-        {
-            var domain = sender as AppDomain;
-            Output.WriteLine("AppDomain.Unload: {0}", domain?.FriendlyName);
-        }
+        // private void AppDomain_Unload(object sender, EventArgs e)
+        // {
+        //     var domain = sender as AppDomain;
+        //     Output.WriteLine("AppDomain.Unload: {0}", domain?.FriendlyName);
+        // }
 
-        private void AppDomain_ProcessExit(object sender, EventArgs e)
-        {
+        // private void AppDomain_ProcessExit(object sender, EventArgs e)
+        // {
             //
             // ProcessExitイベントには、タイムアウトが存在する。（既定は2秒）
             // 以下、MSDNの記述.
@@ -66,8 +73,8 @@ namespace TryCSharp.Samples.Advanced
             //Output.WriteLine("AppDomain.ProcessExit Thread.Sleep()");
             //Thread.Sleep(TimeSpan.FromSeconds(3));
 
-            var domain = sender as AppDomain;
-            Output.WriteLine("AppDomain.ProcessExit: {0}", domain?.FriendlyName);
-        }
+        //     var domain = sender as AppDomain;
+        //     Output.WriteLine("AppDomain.ProcessExit: {0}", domain?.FriendlyName);
+        // }
     }
 }

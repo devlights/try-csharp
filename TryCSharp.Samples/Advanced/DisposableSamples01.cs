@@ -46,9 +46,9 @@ namespace TryCSharp.Samples.Advanced
             //
             // 条件が存在し、作成されないオブジェクトが存在する可能性がある場合.
             //
-            Disposable1 dispose1 = null;
-            Disposable2 dispose2 = null;
-            Disposable3 dispose3 = null;
+            Disposable1? dispose1 = null;
+            Disposable2? dispose2 = null;
+            Disposable3? dispose3 = null;
 
             var isDispose2Create = false;
             try
@@ -93,14 +93,14 @@ namespace TryCSharp.Samples.Advanced
             }
         }
 
-        private void DisposeIfNotNull(IDisposable disposableObject)
+        private void DisposeIfNotNull(IDisposable? disposableObject)
         {
             if (disposableObject == null)
             {
                 return;
             }
 
-            disposableObject.Dispose();
+            disposableObject?.Dispose();
         }
 
         private class DisposableManager : IDisposable
@@ -122,7 +122,7 @@ namespace TryCSharp.Samples.Advanced
                 _isDisposed = true;
             }
 
-            public T Add<T>(T disposableObject) where T : IDisposable
+            public T? Add<T>(T? disposableObject) where T : IDisposable
             {
                 Defence();
 

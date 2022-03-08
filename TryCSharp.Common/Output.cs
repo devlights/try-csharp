@@ -67,7 +67,7 @@ namespace TryCSharp.Common
         ///     指定されたデータを出力します。（改行付与有り）
         /// </summary>
         /// <param name="data">データ</param>
-        public static void WriteLine(object data)
+        public static void WriteLine(object? data)
         {
             if (OutputManager == null)
             {
@@ -81,12 +81,13 @@ namespace TryCSharp.Common
         /// </summary>
         /// <param name="format">フォーマット</param>
         /// <param name="arg">フォーマット引数</param>
-        public static void WriteLine(string format, params object[] arg)
+        public static void WriteLine(string format, params object?[] arg)
         {
             if (OutputManager == null)
             {
                 throw new InvalidOperationException("No OutputManager was found. ");
             }
+
             OutputManager.WriteLine(string.Format(format, arg));
         }
     }

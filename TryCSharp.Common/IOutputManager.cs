@@ -16,12 +16,12 @@ namespace TryCSharp.Common
         ///     指定されたデータを出力します。(改行付与無し）
         /// </summary>
         /// <param name="data">データ</param>
-        void Write(object data);
+        void Write(object? data);
 
         /// <summary>
         ///     指定されたデータを出力します。（改行付与有り）
         /// </summary>
         /// <param name="data">データ</param>
-        void WriteLine(object data);
+        void WriteLine(object? data);
     }
 }

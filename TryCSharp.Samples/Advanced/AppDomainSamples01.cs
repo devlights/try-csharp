@@ -46,9 +46,9 @@ namespace TryCSharp.Samples.Advanced
         }
 
         // イベントハンドラ.
-        void FirstChanceExHandler(object sender, System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs e)
+        void FirstChanceExHandler(object? sender, System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs? e)
         {
-            Output.WriteLine("FirstChanceException: {0}", e.Exception.Message);
+            Output.WriteLine("FirstChanceException: {0}", e!.Exception.Message);
         }
     }
 }

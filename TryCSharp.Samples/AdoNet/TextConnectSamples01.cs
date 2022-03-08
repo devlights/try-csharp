@@ -20,7 +20,7 @@ namespace TryCSharp.Samples.AdoNet
             // OleDbプロバイダを利用してテキストファイル(CSV)に接続する.
             //
             var factory = DbProviderFactories.GetFactory("System.Data.OleDb");
-            using (var conn = factory.CreateConnection())
+            using (var conn = factory.CreateConnection()!)
             {
                 //
                 // テキストファイルに接続する為の接続文字列を構築.
@@ -33,7 +33,7 @@ namespace TryCSharp.Samples.AdoNet
                 // 尚、該当ファイルの構造については別途schema.iniファイルを同じディレクトリに
                 // 用意する必要がある。
                 //
-                var builder = factory.CreateConnectionStringBuilder();
+                var builder = factory.CreateConnectionStringBuilder()!;
 
                 builder["Provider"] = "Microsoft.ACE.OLEDB.12.0";
                 builder["Data Source"] = @".";
