@@ -11,11 +11,10 @@ namespace TryCSharp.Samples.Collections
     [Sample]
     public class QueueSynchronizedSamples01 : IExecutable
     {
-        private Queue _queue;
+        private Queue _queue = Queue.Synchronized(new Queue());
 
         public void Execute()
         {
-            _queue = Queue.Synchronized(new Queue());
             Output.WriteLine("Queue.IsSyncronized == {0}", _queue.IsSynchronized);
 
             for (var i = 0; i < 1000; i++)

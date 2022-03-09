@@ -37,7 +37,7 @@ namespace TryCSharp.Samples.Serialization
     [XmlRoot(ElementName = "Data")]
     public class XmlSerializerSamples01_Data
     {
-        internal string _stringProperty1;
+        internal string _stringProperty1 = string.Empty;
 
         public XmlSerializerSamples01_Data()
         {

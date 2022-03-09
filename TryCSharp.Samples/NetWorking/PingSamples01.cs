@@ -50,6 +50,11 @@ namespace TryCSharp.Samples.NetWorking
                     return;
                 }
 
+                if (e.Reply == null)
+                {
+                    return;
+                }
+                
                 if (e.Reply.Status != IPStatus.Success)
                 {
                     Output.WriteLine("Ping.SendAsync() Failed");

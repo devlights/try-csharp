@@ -399,7 +399,7 @@ namespace TryCSharp.Samples.Async.Channels
             {
                 await this._semaphore.WaitAsync(token).ConfigureAwait(false);
                 this._queue.TryDequeue(out var item);
-                return item;
+                return item!;
             }
         }
     }
