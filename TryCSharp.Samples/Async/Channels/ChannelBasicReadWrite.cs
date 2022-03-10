@@ -24,8 +24,8 @@ namespace TryCSharp.Samples.Async.Channels
             // System.Threading.Channels は、標準ライブラリとしては
             // 搭載されていないライブラリ。インストールにはNuGetを利用する。
             //
-            // 2020-04-19 時点での最新安定版は v4.7.0
-            // prerelease として、v5.0.0 が出ている。
+            // 2020-04-19 時点での最新安定版は v4.7.0prerelease として、v5.0.0 が出ている。
+            // (2022-03-10現在 .NET 6 には標準搭載されている。.NET Core 3から標準ライブラリに入った)
             //
             // System.Threading.Channels を利用すると
             // Goの チャネル のような使い勝手で非同期データ処理が行える。
