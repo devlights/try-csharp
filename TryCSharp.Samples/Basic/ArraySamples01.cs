@@ -25,7 +25,7 @@ namespace TryCSharp.Samples.Basic
     {
         public void Execute()
         {
-            string[] ary = {"hoge", "hehe", "fuga"};
+            string?[] ary = {"hoge", "hehe", "fuga"};
 
             ///////////////////////////////////////////////////////
             //
@@ -85,7 +85,7 @@ namespace TryCSharp.Samples.Basic
             Array.ForEach(
                 Array.FindAll(
                     ary,
-                    element => int.Parse(element)%2 != 0
+                    element => int.Parse(element!)%2 != 0
                 ),
                 element => Output.WriteLine(element));
 
@@ -106,7 +106,7 @@ namespace TryCSharp.Samples.Basic
             Array.ForEach(
                 Array.ConvertAll(
                     ary,
-                    element => int.Parse(element)
+                    element => int.Parse(element!)
                 ),
                 element => Output.WriteLine("Type={0}, Value={1}", element.GetType().FullName, element)
             );

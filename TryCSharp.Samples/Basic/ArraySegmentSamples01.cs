@@ -41,12 +41,12 @@ namespace TryCSharp.Samples.Basic
             //
             for (var i = 0; i < segment1.Count; i++)
             {
-                Output.WriteLine(segment1.Array[segment1.Offset + i]);
+                Output.WriteLine(segment1.Array![segment1.Offset + i]);
             }
 
             for (var i = segment2.Offset; i < segment2.Offset + segment2.Count; i++)
             {
-                Output.WriteLine(segment2.Array[i]);
+                Output.WriteLine(segment2.Array![i]);
             }
 
             //

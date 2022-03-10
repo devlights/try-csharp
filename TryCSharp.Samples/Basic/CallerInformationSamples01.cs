@@ -69,7 +69,7 @@ namespace TryCSharp.Samples.Basic
         /// <summary>
         ///     ファイルパス
         /// </summary>
-        public string FilePath { get; private set; }
+        public string? FilePath { get; private set; }
 
         /// <summary>
         ///     行番号
@@ -79,7 +79,7 @@ namespace TryCSharp.Samples.Basic
         /// <summary>
         ///     メンバー名
         /// </summary>
-        public string MemberName { get; private set; }
+        public string? MemberName { get; private set; }
 
         /// <summary>
         ///     現在のコンテキストでのCaller Informationをスナップします。
