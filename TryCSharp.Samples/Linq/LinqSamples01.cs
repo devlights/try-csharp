@@ -16,7 +16,7 @@ namespace TryCSharp.Samples.Linq
             var persons = CreateSampleData();
 
             var query = from person in persons
-                    where int.Parse(person.Id) >= 2
+                    where int.Parse(person.Id!) >= 2
                     select person;
 
             try
@@ -93,24 +93,24 @@ namespace TryCSharp.Samples.Linq
 
         private class Person
         {
-            public string Id { get; set; }
+            public string? Id { get; set; }
 
-            public string Name { get; set; }
+            public string? Name { get; set; }
 
-            public AddressInfo Address { get; set; }
+            public AddressInfo? Address { get; set; }
         }
 
         private class AddressInfo
         {
-            public string PostCode { get; set; }
+            public string? PostCode { get; set; }
 
-            public string Prefecture { get; set; }
+            public string? Prefecture { get; set; }
 
-            public string Municipality { get; set; }
+            public string? Municipality { get; set; }
 
-            public string HouseNumber { get; set; }
+            public string? HouseNumber { get; set; }
 
-            public string Tel { get; set; }
+            public string? Tel { get; set; }
         }
     }
 }

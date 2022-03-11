@@ -20,7 +20,7 @@ namespace TryCSharp.Samples.Linq
             //  (昇順の場合のascendingは付けても付けなくても良い)
             //
             var query1 = from person in persons
-                    orderby person.Id.ToInt() ascending
+                    orderby person.Id!.ToInt() ascending
                     select person;
 
             Output.WriteLine("============================================");
@@ -33,7 +33,7 @@ namespace TryCSharp.Samples.Linq
             // 降順.
             //
             var query2 = from person in persons
-                    orderby person.Id.ToInt() descending
+                    orderby person.Id!.ToInt() descending
                     select person;
 
             Output.WriteLine("============================================");
@@ -46,7 +46,7 @@ namespace TryCSharp.Samples.Linq
             // 複数の条件でソート.
             //
             var query3 = from person in persons
-                    orderby person.Address.PostCode, person.Id.ToInt()
+                    orderby person.Address!.PostCode, person.Id!.ToInt()
                     select person;
 
             Output.WriteLine("============================================");
@@ -67,8 +67,8 @@ namespace TryCSharp.Samples.Linq
             // され直されてしまう。
             //
             var query4 = from person in persons
-                    orderby person.Address.PostCode
-                    orderby person.Id.ToInt()
+                    orderby person.Address!.PostCode
+                    orderby person.Id!.ToInt()
                     select person;
 
             Output.WriteLine("============================================");
@@ -155,28 +155,28 @@ namespace TryCSharp.Samples.Linq
 
         private class Person
         {
-            public string Id { get; set; }
+            public string? Id { get; set; }
 
-            public string Name { get; set; }
+            public string? Name { get; set; }
 
-            public AddressInfo Address { get; set; }
+            public AddressInfo? Address { get; set; }
 
-            public Country Country { get; set; }
+            public Country? Country { get; set; }
         }
 
         private class AddressInfo
         {
-            public string PostCode { get; set; }
+            public string? PostCode { get; set; }
 
-            public string Prefecture { get; set; }
+            public string? Prefecture { get; set; }
 
-            public string Municipality { get; set; }
+            public string? Municipality { get; set; }
 
-            public string HouseNumber { get; set; }
+            public string? HouseNumber { get; set; }
 
-            public string[] Tel { get; set; }
+            public string[]? Tel { get; set; }
 
-            public string[] Frends { get; set; }
+            public string[]? Frends { get; set; }
         }
     }
 }

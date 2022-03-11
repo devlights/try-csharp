@@ -146,9 +146,9 @@ namespace TryCSharp.Samples.Linq
 
         public class Person
         {
-            public string Id { get; set; }
+            public string? Id { get; set; }
 
-            public string Name { get; set; }
+            public string? Name { get; set; }
 
             public int Age { get; set; }
 
@@ -157,20 +157,20 @@ namespace TryCSharp.Samples.Linq
 
         public class Team
         {
-            public string Id { get; set; }
+            public string? Id { get; set; }
 
-            public string Name { get; set; }
+            public string? Name { get; set; }
 
-            public IEnumerable<string> Members { get; set; }
+            public IEnumerable<string>? Members { get; set; }
         }
 
         public class Project
         {
-            public string Id { get; set; }
+            public string? Id { get; set; }
 
-            public string Name { get; set; }
+            public string? Name { get; set; }
 
-            public IEnumerable<string> Members { get; set; }
+            public IEnumerable<string>? Members { get; set; }
 
             public DateTime From { get; set; }
 

@@ -139,7 +139,7 @@ namespace TryCSharp.Samples.Linq
                     join prj in
                     (
                         from project in projects
-                        from member in project.Members
+                        from member in project.Members!
                         select new
                         {
                             project.Id,
@@ -178,7 +178,7 @@ namespace TryCSharp.Samples.Linq
                     (
                         // 1の処理.
                         from project in projects
-                        from member in project.Members
+                        from member in project.Members!
                         select new
                         {
                             project.Id, project.Name,
@@ -220,7 +220,7 @@ namespace TryCSharp.Samples.Linq
             //
             var query3 = from person in persons
                     from project in projects
-                    where project.Members.Contains(person.Id)
+                    where project.Members!.Contains(person.Id)
                     select new
                     {
                         Person = person,
@@ -246,9 +246,9 @@ namespace TryCSharp.Samples.Linq
 
         public class Person
         {
-            public string Id { get; set; }
+            public string? Id { get; set; }
 
-            public string Name { get; set; }
+            public string? Name { get; set; }
 
             public int Age { get; set; }
 
@@ -257,20 +257,20 @@ namespace TryCSharp.Samples.Linq
 
         public class Team
         {
-            public string Id { get; set; }
+            public string? Id { get; set; }
 
-            public string Name { get; set; }
+            public string? Name { get; set; }
 
-            public IEnumerable<string> Members { get; set; }
+            public IEnumerable<string>? Members { get; set; }
         }
 
         public class Project
         {
-            public string Id { get; set; }
+            public string? Id { get; set; }
 
-            public string Name { get; set; }
+            public string? Name { get; set; }
 
-            public IEnumerable<string> Members { get; set; }
+            public IEnumerable<string>? Members { get; set; }
 
             public DateTime From { get; set; }
 

@@ -32,7 +32,7 @@ namespace TryCSharp.Samples.Linq
             // 複数のfrom.
             //
             var query2 = from person in persons
-                    from tel in person.Address.Tel
+                    from tel in person.Address!.Tel!
                     select new
                     {
                         person.Id,
@@ -123,26 +123,26 @@ namespace TryCSharp.Samples.Linq
 
         private class Person
         {
-            public string Id { get; set; }
+            public string? Id { get; set; }
 
-            public string Name { get; set; }
+            public string? Name { get; set; }
 
-            public AddressInfo Address { get; set; }
+            public AddressInfo? Address { get; set; }
         }
 
         private class AddressInfo
         {
-            public string PostCode { get; set; }
+            public string? PostCode { get; set; }
 
-            public string Prefecture { get; set; }
+            public string? Prefecture { get; set; }
 
-            public string Municipality { get; set; }
+            public string? Municipality { get; set; }
 
-            public string HouseNumber { get; set; }
+            public string? HouseNumber { get; set; }
 
-            public string[] Tel { get; set; }
+            public string[]? Tel { get; set; }
 
-            public string[] Frends { get; set; }
+            public string[]? Frends { get; set; }
         }
     }
 }

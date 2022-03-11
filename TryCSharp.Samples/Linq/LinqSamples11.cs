@@ -137,7 +137,7 @@ namespace TryCSharp.Samples.Linq
                     join prj in
                     (
                         from project in projects
-                        from member in project.Members
+                        from member in project.Members!
                         select new {project.Id, project.Name, Member = member}
                     ) on person.Id equals prj.Member into personProjects
                     from personProject in personProjects
@@ -157,7 +157,7 @@ namespace TryCSharp.Samples.Linq
                     join prj in
                     (
                         from project in projects
-                        from member in project.Members
+                        from member in project.Members!
                         select new {project.Id, project.Name, Member = member}
                     ) on person.Id equals prj.Member into personProjects
                     // 外部結合するためにDefaultIfEmptyを使用.
@@ -177,9 +177,9 @@ namespace TryCSharp.Samples.Linq
 
         public class Person
         {
-            public string Id { get; set; }
+            public string? Id { get; set; }
 
-            public string Name { get; set; }
+            public string? Name { get; set; }
 
             public int Age { get; set; }
 
@@ -188,20 +188,20 @@ namespace TryCSharp.Samples.Linq
 
         public class Team
         {
-            public string Id { get; set; }
+            public string? Id { get; set; }
 
-            public string Name { get; set; }
+            public string? Name { get; set; }
 
-            public IEnumerable<string> Members { get; set; }
+            public IEnumerable<string>? Members { get; set; }
         }
 
         public class Project
         {
-            public string Id { get; set; }
+            public string? Id { get; set; }
 
-            public string Name { get; set; }
+            public string? Name { get; set; }
 
-            public IEnumerable<string> Members { get; set; }
+            public IEnumerable<string>? Members { get; set; }
 
             public DateTime From { get; set; }
 

@@ -132,7 +132,7 @@ namespace TryCSharp.Samples.Linq
             //====================================================================================
             // Teamから辿るパターン
             var query1 = from team in teams
-                    from personId in team.Members
+                    from personId in team.Members!
                     join person in persons on personId equals person.Id
                     orderby team.Id ascending, person.Id ascending
                     select new
@@ -164,7 +164,7 @@ namespace TryCSharp.Samples.Linq
             //
             var query2 = from person in persons
                     from team in teams
-                    where team.Members.Contains(person.Id)
+                    where team.Members!.Contains(person.Id)
                     orderby team.Id ascending, person.Id ascending
                     select new
                     {
@@ -189,7 +189,7 @@ namespace TryCSharp.Samples.Linq
                     join team in
                     (
                         from team in teams
-                        from member in team.Members
+                        from member in team.Members!
                         select new
                         {
                             team.Id,
@@ -233,9 +233,9 @@ namespace TryCSharp.Samples.Linq
 
         public class Person
         {
-            public string Id { get; set; }
+            public string? Id { get; set; }
 
-            public string Name { get; set; }
+            public string? Name { get; set; }
 
             public int Age { get; set; }
 
@@ -244,20 +244,20 @@ namespace TryCSharp.Samples.Linq
 
         public class Team
         {
-            public string Id { get; set; }
+            public string? Id { get; set; }
 
-            public string Name { get; set; }
+            public string? Name { get; set; }
 
-            public IEnumerable<string> Members { get; set; }
+            public IEnumerable<string>? Members { get; set; }
         }
 
         public class Project
         {
-            public string Id { get; set; }
+            public string? Id { get; set; }
 
-            public string Name { get; set; }
+            public string? Name { get; set; }
 
-            public IEnumerable<string> Members { get; set; }
+            public IEnumerable<string>? Members { get; set; }
 
             public DateTime From { get; set; }
 

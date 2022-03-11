@@ -18,7 +18,7 @@ namespace TryCSharp.Samples.Linq
             // 普通に絞り込み.
             //
             var query1 = from person in persons
-                    where person.Name.EndsWith("4")
+                    where person.Name!.EndsWith("4")
                     select person;
 
             foreach (var person in query1)
@@ -30,7 +30,7 @@ namespace TryCSharp.Samples.Linq
             // 複数の条件.
             //
             var query2 = from person in persons
-                    where person.Name.EndsWith("4") || (person.Address.Prefecture == "京都府")
+                    where person.Name!.EndsWith("4") || (person.Address!.Prefecture == "京都府")
                     select person;
 
             foreach (var person in query2)
@@ -42,8 +42,8 @@ namespace TryCSharp.Samples.Linq
             // 複数のwhereを指定
             //
             var query3 = from person in persons
-                    where person.Name.Contains("gsf")
-                    where person.Address.Prefecture == "京都府"
+                    where person.Name!.Contains("gsf")
+                    where person.Address!.Prefecture == "京都府"
                     select person;
 
             foreach (var person in query3)
@@ -117,26 +117,26 @@ namespace TryCSharp.Samples.Linq
 
         private class Person
         {
-            public string Id { get; set; }
+            public string? Id { get; set; }
 
-            public string Name { get; set; }
+            public string? Name { get; set; }
 
-            public AddressInfo Address { get; set; }
+            public AddressInfo? Address { get; set; }
         }
 
         private class AddressInfo
         {
-            public string PostCode { get; set; }
+            public string? PostCode { get; set; }
 
-            public string Prefecture { get; set; }
+            public string? Prefecture { get; set; }
 
-            public string Municipality { get; set; }
+            public string? Municipality { get; set; }
 
-            public string HouseNumber { get; set; }
+            public string? HouseNumber { get; set; }
 
-            public string[] Tel { get; set; }
+            public string[]? Tel { get; set; }
 
-            public string[] Frends { get; set; }
+            public string[]? Frends { get; set; }
         }
     }
 }
