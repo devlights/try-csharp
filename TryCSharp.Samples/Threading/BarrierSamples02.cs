@@ -20,11 +20,10 @@ namespace TryCSharp.Samples.Threading
         // キャンセルトークン.
         private CancellationToken _token;
         // キャンセルトークンソース.
-        private CancellationTokenSource _tokenSource;
+        private CancellationTokenSource _tokenSource = new CancellationTokenSource();
 
         public void Execute()
         {
-            _tokenSource = new CancellationTokenSource();
             _token = _tokenSource.Token;
 
             //
@@ -183,7 +182,7 @@ namespace TryCSharp.Samples.Threading
         {
             if (ex is OperationCanceledException)
             {
-                var cancelEx = ex as OperationCanceledException;
+                var cancelEx = (OperationCanceledException)ex;
                 if (_token == cancelEx.CancellationToken)
                 {
                     Output.WriteLine("＊＊＊Barrier内の処理がキャンセルされた MESSAGE={0} ＊＊＊", cancelEx.Message);

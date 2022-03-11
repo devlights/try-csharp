@@ -73,7 +73,7 @@ namespace TryCSharp.Samples.Threading
             Output.WriteLine("終了");
         }
 
-        private void DoProc(object stateObj)
+        private void DoProc(object? stateObj)
         {
             Thread.Sleep(TimeSpan.FromSeconds(1));
             Output.Write("*** シグナル状態に設定 *** ");

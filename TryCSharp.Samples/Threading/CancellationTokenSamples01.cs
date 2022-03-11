@@ -1,4 +1,5 @@
-﻿using System;
+﻿#pragma warning disable SYSLIB0014
+using System;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
@@ -292,3 +293,4 @@ namespace TryCSharp.Samples.Threading
         }
     }
 }
+#pragma warning restore SYSLIB0014

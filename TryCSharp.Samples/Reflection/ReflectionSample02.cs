@@ -19,21 +19,21 @@ namespace TryCSharp.Samples.Reflection
             // Activatorを利用してインスタンス化.（Typeのみの指定）
             //
             var obj = Activator.CreateInstance(type);
-            Output.WriteLine(obj.GetType());
+            Output.WriteLine(obj!.GetType());
 
             //
             // Activatorを利用してインスタンス化.(Assembly名と型名)
             // この場合、戻り値はSystem.Runtime.Remoting.ObjectHandleになります。
             //
-            obj = Activator.CreateInstance(Assembly.GetAssembly(type).GetType(), type.FullName);
-            Output.WriteLine(obj.GetType());
+            obj = Activator.CreateInstance(Assembly.GetAssembly(type)!.GetType(), type.FullName);
+            Output.WriteLine(obj!.GetType());
 
             //
             // Assemblyを利用してインスタンス化.
             // 以下が使えるのは、対象となるクラスが既に読み込み済みのアセンブリの場合です。
             // まだ読み込まれていないアセンブリに含まれるクラスの場合は先にLoadしてから使います。
             //
-            obj = Assembly.GetAssembly(type).CreateInstance(type.FullName);
+            obj = Assembly.GetAssembly(type)!.CreateInstance(type.FullName!);
             Output.WriteLine(obj?.GetType());
         }
     }

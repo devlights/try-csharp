@@ -61,7 +61,12 @@ namespace TryCSharp.Samples.Threading
             //
             ParameterizedThreadStart pts = data =>
             {
-                var p = data as ThreadParameter;
+                if (data == null)
+                {
+                    return;
+                }
+                
+                var p = (ThreadParameter)data;
                 Thread.Sleep(150);
                 Output.WriteLine("Thread Count:{0}, Time:{1}", p.Count, p.Time.ToString("hh:mm:ss.fff"));
             };

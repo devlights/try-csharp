@@ -69,7 +69,7 @@ namespace TryCSharp.Samples.Threading
             }
         }
 
-        private void TaskProc(object data)
+        private void TaskProc(object? data)
         {
             Output.WriteLine("Task ID={0} 開始", Task.CurrentId);
             Thread.Sleep(TimeSpan.FromSeconds(new Random().Next(10)));

@@ -38,9 +38,9 @@ namespace TryCSharp.Samples.Reflection.Emit
             AddAttribute(typeBuilder, typeof(CreatorAttribute), new[] {typeof(string)}, new object[] {"gsf.zero1"});
 
             var type = typeBuilder.CreateType();
-            Activator.CreateInstance(type);
+            Activator.CreateInstance(type!);
 
-            var attrs = type.GetCustomAttributes(true);
+            var attrs = type!.GetCustomAttributes(true);
             if (attrs.Length > 0)
             {
                 foreach (var attr in attrs)
@@ -49,7 +49,7 @@ namespace TryCSharp.Samples.Reflection.Emit
 
                     if (attr is CreatorAttribute)
                     {
-                        Output.WriteLine("\tName={0}", (attr as CreatorAttribute).CreatorName);
+                        Output.WriteLine("\tName={0}", ((CreatorAttribute)attr).CreatorName);
                     }
                 }
             }

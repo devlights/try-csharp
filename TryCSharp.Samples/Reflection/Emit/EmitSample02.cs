@@ -89,11 +89,11 @@ namespace TryCSharp.Samples.Reflection.Emit
             //
             // 13.型を具現化.
             //
-            var withPropObj = Activator.CreateInstance(type);
+            var withPropObj = Activator.CreateInstance(type!);
             //
             // 14.実行.
             //
-            var propInfo = type.GetProperty("Message");
+            var propInfo = type!.GetProperty("Message");
             propInfo?.SetValue(withPropObj, "HelloWorld", null);
             Output.WriteLine(propInfo?.GetValue(withPropObj, null));
         }

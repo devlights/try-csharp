@@ -123,7 +123,7 @@ namespace TryCSharp.Samples.Threading
             Output.WriteLine("{0}IsSet={1}", prefix, cde.IsSet);
         }
 
-        private void TaskProc(object data)
+        private void TaskProc(object? data)
         {
             //
             // 処理開始と共に、CountdownEventの内部カウントをインクリメント.

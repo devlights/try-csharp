@@ -20,7 +20,12 @@ namespace TryCSharp.Samples.Threading
             {
                 ThreadPool.QueueUserWorkItem(stateInfo =>
                     {
-                        var p = stateInfo as StateInfo;
+                        if (stateInfo == null)
+                        {
+                            return;
+                        }
+
+                        var p = (StateInfo)stateInfo;
                         Thread.Sleep(150);
                         Output.WriteLine("Thread Count:{0}, Time:{1}", p.Count, p.Time.ToString("hh:mm:ss.fff"));
                     },

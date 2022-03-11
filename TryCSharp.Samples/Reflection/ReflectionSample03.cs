@@ -32,6 +32,10 @@ namespace TryCSharp.Samples.Reflection
             // MethodInfo.Invokeを利用するパターン.
             //
             var mi = typeof(string).GetMethod("Trim", new Type[0]);
+            if (mi == null)
+            {
+                return;
+            }
 
             var watch = Stopwatch.StartNew();
             for (var i = 0; i < 3000000; i++)

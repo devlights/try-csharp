@@ -48,8 +48,8 @@ namespace TryCSharp.Samples.Reflection
             typeName = "System.Collections.Generic.List`1";
             var type6 = Type.GetType(typeName);
 
-            Type type7 = null;
-            if (type6.IsGenericType && type6.IsGenericTypeDefinition)
+            Type? type7 = null;
+            if (type6!.IsGenericType && type6.IsGenericTypeDefinition)
             {
                 type7 = type6.MakeGenericType(typeof(string));
             }

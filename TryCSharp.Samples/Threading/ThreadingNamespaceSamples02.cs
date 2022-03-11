@@ -66,7 +66,7 @@ namespace TryCSharp.Samples.Threading
             Thread.FreeNamedDataSlot("SampleSlot");
         }
 
-        private void DoAnonymousDataSlotProcess(object stateObj)
+        private void DoAnonymousDataSlotProcess(object? stateObj)
         {
             var slot = stateObj as LocalDataStoreSlot;
             if (slot == null)
@@ -95,7 +95,7 @@ namespace TryCSharp.Samples.Threading
             Output.WriteLine("[AFTER ] Thread:{0}   DataSlot:{1}", Thread.CurrentThread.Name, Thread.GetData(slot));
         }
 
-        private void DoNamedDataSlotProcess(object stateObj)
+        private void DoNamedDataSlotProcess(object? stateObj)
         {
             //
             // スロットにデータを設定

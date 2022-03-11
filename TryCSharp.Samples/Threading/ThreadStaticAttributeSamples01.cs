@@ -48,8 +48,8 @@ namespace TryCSharp.Samples.Threading
                 //
                 // ThreadStatic属性が付加されたフィールドと共有されたフィールドの両方に値を設定.
                 //
-                NameAndId = new KeyValuePair<string, int>(thread.Name, thread.ManagedThreadId);
-                SharedNameAndId = new KeyValuePair<string, int>(thread.Name, thread.ManagedThreadId);
+                NameAndId = new KeyValuePair<string, int>(thread.Name!, thread.ManagedThreadId);
+                SharedNameAndId = new KeyValuePair<string, int>(thread.Name!, thread.ManagedThreadId);
 
                 Output.WriteLine("[BEFORE] ThreadStatic={0} Shared={1}", NameAndId, SharedNameAndId);
 

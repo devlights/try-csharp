@@ -19,7 +19,7 @@ namespace TryCSharp.Samples.Threading
             Thread.Sleep(10000);
         }
 
-        private void TimerCallback(object state)
+        private void TimerCallback(object? state)
         {
             Output.WriteLine("Timer Callback!!");
 

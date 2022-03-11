@@ -56,7 +56,7 @@ namespace TryCSharp.Samples.Threading
             //  設定されていない状態で結果が出力されるはずです。(結果がセットされる前にメイン処理が
             //  結果確認処理へと進むため))
             //
-            states.ForEach(state => { state.TargetThread.Join(); });
+            states.ForEach(state => { state.TargetThread!.Join(); });
 
             // 結果確認.
             states.ForEach(Output.WriteLine);
@@ -83,17 +83,17 @@ namespace TryCSharp.Samples.Threading
                 thread.Start($"{i}番目のスレッド");
             }
 
-            states.ForEach(state => { state.TargetThread.Join(); });
+            states.ForEach(state => { state.TargetThread!.Join(); });
             states.ForEach(Output.WriteLine);
         }
 
         private class ThreadStartDelegateState
         {
-            public Thread TargetThread { get; set; }
+            public Thread? TargetThread { get; set; }
 
-            public string ArgumentData { get; set; }
+            public string? ArgumentData { get; set; }
 
-            public string ReturnData { get; set; }
+            public string? ReturnData { get; set; }
 
             public void ThreadStartHandlerMethod()
             {
@@ -101,9 +101,12 @@ namespace TryCSharp.Samples.Threading
                 ReturnData = Thread.CurrentThread.ManagedThreadId.ToString();
             }
 
-            public void ParameterizedThreadStartHandlerMethod(object threadArgument)
+            public void ParameterizedThreadStartHandlerMethod(object? threadArgument)
             {
-                ArgumentData = threadArgument as string;
+                if (threadArgument != null)
+                {
+                    ArgumentData = (string)threadArgument;
+                }
 
                 ThreadStartHandlerMethod();
             }

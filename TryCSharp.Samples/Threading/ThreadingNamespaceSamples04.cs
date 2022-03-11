@@ -32,9 +32,9 @@ namespace TryCSharp.Samples.Threading
             t2.Join();
         }
 
-        private void ThreadProc(object stateObj)
+        private void ThreadProc(object? stateObj)
         {
-            var threadName = stateObj.ToString();
+            var threadName = stateObj!.ToString();
             Output.WriteLine("{0} Start", threadName);
 
             //

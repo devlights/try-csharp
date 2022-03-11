@@ -14,7 +14,7 @@ namespace TryCSharp.Samples.Reflection
         {
             var type = typeof(HasByRefParameterMethodReflectionSample);
             var flags = BindingFlags.NonPublic | BindingFlags.Instance;
-            Type[] paramTypes = {typeof(string), Type.GetType("System.Int32&"), typeof(int)};
+            Type[] paramTypes = {typeof(string), Type.GetType("System.Int32&")!, typeof(int)};
 
             var methodInfo = type.GetMethod("SetPropertyValue", flags, null, paramTypes, null);
             Output.WriteLine(methodInfo);

@@ -42,13 +42,13 @@ namespace TryCSharp.Samples.Reflection.Emit
             //
             var methodAttr = MethodAttributes.Public | MethodAttributes.Virtual;
             var methodBuilder = typeBuilder.DefineMethod("SayHello", methodAttr, typeof(void), new Type[] {});
-            typeBuilder.DefineMethodOverride(methodBuilder, typeof(ISayHello).GetMethod("SayHello"));
+            typeBuilder.DefineMethodOverride(methodBuilder, typeof(ISayHello).GetMethod("SayHello")!);
             //
             // 5.ILGeneratorを生成し、ILコードを設定.
             //
             var il = methodBuilder.GetILGenerator();
             il.Emit(OpCodes.Ldstr, "Hello World");
-            il.Emit(OpCodes.Call, typeof(Console).GetMethod("WriteLine", new[] {typeof(string)}));
+            il.Emit(OpCodes.Call, typeof(Console).GetMethod("WriteLine", new[] {typeof(string)})!);
             il.Emit(OpCodes.Ret);
             //
             // 6.作成した型を取得.
@@ -57,11 +57,11 @@ namespace TryCSharp.Samples.Reflection.Emit
             //
             // 7.型を具現化.
             //
-            var hello = (ISayHello) Activator.CreateInstance(type);
+            var hello = (ISayHello?) Activator.CreateInstance(type!);
             //
             // 8.実行.
             //
-            hello.SayHello();
+            hello?.SayHello();
         }
 
         public interface ISayHello
