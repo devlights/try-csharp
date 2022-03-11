@@ -100,12 +100,12 @@ namespace TryCSharp.Samples.Linq
         private class Person
         {
             public int Id { get; set; }
-            public string Name { get; set; }
+            public string? Name { get; set; }
         }
 
         private class Customer : Person
         {
-            public IEnumerable<Order> Orders { get; set; }
+            public IEnumerable<Order>? Orders { get; set; }
         }
 
         private class Order

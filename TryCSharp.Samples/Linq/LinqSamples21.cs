@@ -87,8 +87,8 @@ namespace TryCSharp.Samples.Linq
 
         private class Team
         {
-            public string Name { get; set; }
-            public IEnumerable<string> Members { get; set; }
+            public string? Name { get; set; }
+            public IEnumerable<string>? Members { get; set; }
         }
     }
 }
