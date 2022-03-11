@@ -1,10 +1,7 @@
-
 image: gitpod/workspace-dotnet-lts:latest
-
-tasks:    
+tasks:
   - name: dotnet restore
     init: make restore
-
 vscode:
   extensions:
     - muhammad-sammy.csharp
