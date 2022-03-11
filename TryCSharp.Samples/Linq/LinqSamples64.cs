@@ -25,7 +25,7 @@ namespace TryCSharp.Samples.Linq
             var attr = elem.FirstAttribute;
 
             Output.WriteLine(attr);
-            Output.WriteLine("{0}=\"{1}\"", attr.Name, attr.Value);
+            Output.WriteLine("{0}=\"{1}\"", attr!.Name, attr.Value);
             Output.WriteLine("=====================================");
 
             //

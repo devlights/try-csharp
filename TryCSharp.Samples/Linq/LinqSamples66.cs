@@ -29,7 +29,7 @@ namespace TryCSharp.Samples.Linq
             var elem = root.Elements("Child").First();
 
             var attr = elem.Attribute("Id");
-            attr.Value = 500.ToString();
+            attr!.Value = 500.ToString();
 
             Output.WriteLine(root);
             Output.WriteLine("=====================================");

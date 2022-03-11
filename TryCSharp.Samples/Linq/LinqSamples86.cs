@@ -48,7 +48,7 @@ namespace TryCSharp.Samples.Linq
             foreach (var item in QueryHasAnnotation(root))
             {
                 Output.WriteLine(item);
-                Output.WriteLine(item.Annotation<Tag>().Value);
+                Output.WriteLine(item.Annotation<Tag>()!.Value);
             }
 
             //

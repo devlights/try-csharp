@@ -41,7 +41,7 @@ namespace TryCSharp.Samples.Linq
 
         private class Language
         {
-            public string Name { get; set; }
+            public string? Name { get; set; }
 
             public static Language Create(string name)
             {
@@ -51,9 +51,9 @@ namespace TryCSharp.Samples.Linq
 
         private class LanguageNameComparer : EqualityComparer<Language>
         {
-            public override bool Equals(Language l1, Language l2)
+            public override bool Equals(Language? l1, Language? l2)
             {
-                return l1.Name == l2.Name;
+                return l1!.Name == l2!.Name;
             }
 
             public override int GetHashCode(Language l)

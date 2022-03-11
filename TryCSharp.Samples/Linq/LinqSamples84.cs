@@ -36,7 +36,7 @@ namespace TryCSharp.Samples.Linq
 
             // 属性値を変更
             //   Changingイベントなので、イベントハンドラ内にて見えるsenderの値は*更新前*の値となる。 (Change)
-            book.Attribute("id").Value = "updated";
+            book.Attribute("id")!.Value = "updated";
             // 要素の値を変更
             //   Title要素は内部にXTextを持っているので、まずそれが削除される (Remove)
             //   その後、更新後の値を持つXTextが設定される. (Add)
@@ -64,7 +64,7 @@ namespace TryCSharp.Samples.Linq
 
             // 属性値を変更
             //   Changedイベントなので、イベントハンドラ内にて見えるsenderの値は*更新後*の値となる。 (Change)
-            book.Attribute("id").Value = "updated";
+            book.Attribute("id")!.Value = "updated";
             title.Value = "updated";
             title.Remove();
             book.Add(new XElement("newelem", "hogehoge"));
@@ -73,15 +73,15 @@ namespace TryCSharp.Samples.Linq
         }
 
         // Changingイベントハンドラ
-        private void OnNodeChanging(object sender, XObjectChangeEventArgs e)
+        private void OnNodeChanging(object? sender, XObjectChangeEventArgs e)
         {
-            Output.WriteLine("Changing: sender--{0}:{1}, ObjectChange--{2}", sender.GetType().Name, sender, e.ObjectChange);
+            Output.WriteLine("Changing: sender--{0}:{1}, ObjectChange--{2}", sender!.GetType().Name, sender, e.ObjectChange);
         }
 
         // Changedイベントハンドラ
-        private void OnNodeChanged(object sender, XObjectChangeEventArgs e)
+        private void OnNodeChanged(object? sender, XObjectChangeEventArgs e)
         {
-            Output.WriteLine("Changed: sender--{0}:{1}, ObjectChange--{2}", sender.GetType().Name, sender, e.ObjectChange);
+            Output.WriteLine("Changed: sender--{0}:{1}, ObjectChange--{2}", sender!.GetType().Name, sender, e.ObjectChange);
         }
 
         private XElement BuildSampleXml()

@@ -141,8 +141,8 @@ namespace TryCSharp.Samples.Linq
                 select new XElement
                 (
                     "newdata",
-                    new XAttribute("code", elem.Element("code").Value),
-                    new XAttribute("name", elem.Element("name").Value)
+                    new XAttribute("code", elem.Element("code")!.Value),
+                    new XAttribute("name", elem.Element("name")!.Value)
                 )
             );
 
@@ -158,8 +158,8 @@ namespace TryCSharp.Samples.Linq
                 select new XElement
                 (
                     "newdata",
-                    new XAttribute("code", elem.Element("code").Value),
-                    new XAttribute("name", elem.Element("name").Value)
+                    new XAttribute("code", elem.Element("code")!.Value),
+                    new XAttribute("name", elem.Element("name")!.Value)
                 )
             );
 
@@ -177,8 +177,8 @@ namespace TryCSharp.Samples.Linq
                 select new XElement
                 (
                     "newdata",
-                    new XAttribute("code", elem.Element("code").Value),
-                    new XAttribute("name", elem.Element("name").Value)
+                    new XAttribute("code", elem.Element("code")!.Value),
+                    new XAttribute("name", elem.Element("name")!.Value)
                 )
             );
 

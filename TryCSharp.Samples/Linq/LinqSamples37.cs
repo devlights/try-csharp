@@ -95,7 +95,7 @@ namespace TryCSharp.Samples.Linq
 
         private class Order
         {
-            public string Name { get; set; }
+            public string? Name { get; set; }
             public int Amount { get; set; }
             public int Month { get; set; }
         }

@@ -35,7 +35,7 @@ namespace TryCSharp.Samples.Linq
             //   -- File.OpenReadで返るのはFileStream
             //      FileStreamはStreamのサブクラス.
             //
-            XElement element = null;
+            XElement? element = null;
             using (var stream = File.OpenRead("xml/Books.xml"))
             {
                 element = XElement.Load(stream);

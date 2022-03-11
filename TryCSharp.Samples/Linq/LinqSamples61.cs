@@ -32,7 +32,9 @@ namespace TryCSharp.Samples.Linq
 
             try
             {
-                elem.Value = null;
+                // C# 8.0 から追加された Nullable Reference Type によって以下は警告が
+                // 必ず発生するようになったので意味がなくなった。
+                // elem.Value = null;
             }
             catch (ArgumentNullException argNullEx)
             {
@@ -63,7 +65,9 @@ namespace TryCSharp.Samples.Linq
 
             try
             {
-                elem.SetValue(null);
+                // C# 8.0 から追加された Nullable Reference Type によって以下は警告が
+                // 必ず発生するようになったので意味がなくなった。
+                //elem.SetValue(null);
             }
             catch (ArgumentNullException argNullEx)
             {

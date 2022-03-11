@@ -34,10 +34,14 @@ namespace TryCSharp.Samples.Linq
             // GUID,GUID?
             //
             var root = BuildSampleXml();
+            if (root == null)
+            {
+                return;
+            }
 
-            var title = (string) root.Descendants("Title").FirstOrDefault() ?? "Nothing";
-            var attr = (string) root.Elements("Book").First().Attribute("id") ?? "Nothing";
-            var noElem = (string) root.Descendants("NoElem").FirstOrDefault() ?? "Nothing";
+            var title = (string) root.Descendants("Title").FirstOrDefault()! ?? "Nothing";
+            var attr = (string) root.Elements("Book").First().Attribute("id")! ?? "Nothing";
+            var noElem = (string) root.Descendants("NoElem").FirstOrDefault()! ?? "Nothing";
 
             Output.WriteLine(title);
             Output.WriteLine(attr);
