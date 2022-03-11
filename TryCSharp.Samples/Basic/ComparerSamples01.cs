@@ -56,6 +56,11 @@ namespace TryCSharp.Samples.Basic
 
         private class Person
         {
+            public Person()
+            {
+                Name = string.Empty;
+            }
+            
             public int Id { get; set; }
             public string Name { get; set; }
 
@@ -76,15 +81,15 @@ namespace TryCSharp.Samples.Basic
         //
         private class PersonIdComparer : Comparer<Person>
         {
-            public override int Compare(Person x, Person y)
+            public override int Compare(Person? x, Person? y)
             {
                 if (Equals(x, y))
                 {
                     return (int) CompareResult.EQUAL;
                 }
 
-                var xId = x.Id;
-                var yId = y.Id;
+                var xId = x!.Id;
+                var yId = y!.Id;
 
                 return xId.CompareTo(yId);
             }
@@ -92,7 +97,7 @@ namespace TryCSharp.Samples.Basic
 
         private class PersonNameComparer : Comparer<Person>
         {
-            public override int Compare(Person x, Person y)
+            public override int Compare(Person? x, Person? y)
             {
                 if (Equals(x, y))
                 {

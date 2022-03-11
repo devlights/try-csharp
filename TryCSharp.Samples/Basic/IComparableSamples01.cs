@@ -65,10 +65,15 @@ namespace TryCSharp.Samples.Basic
 
         private class Person : IComparable<Person>
         {
+            public Person()
+            {
+                Name = string.Empty;
+            }
+
             public int Id { get; set; }
             public string Name { get; set; }
 
-            public int CompareTo(Person other)
+            public int CompareTo(Person? other)
             {
                 if (other == null)
                 {

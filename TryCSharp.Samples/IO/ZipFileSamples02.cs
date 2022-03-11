@@ -24,6 +24,11 @@ namespace TryCSharp.Samples.IO
 
         private string DesktopPath => Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
+        public ZipFileSamples02()
+        {
+            _zipFilePath = string.Empty;
+        }
+        
         public void Execute()
         {
             //

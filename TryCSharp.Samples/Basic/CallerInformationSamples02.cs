@@ -13,7 +13,7 @@ namespace TryCSharp.Samples.Basic
             //
             var notifyObj = new NotityPropertyChangedImpl();
 
-            notifyObj.PropertyChanged += (s, e) => { Output.WriteLine("[{0}] changed to [{1}]", e.PropertyName, (s as dynamic).Name); };
+            notifyObj.PropertyChanged += (s, e) => { Output.WriteLine("[{0}] changed to [{1}]", e.PropertyName, (s as dynamic)!.Name); };
 
             notifyObj.Name = "hello world";
             notifyObj.Name = "goobye world";
@@ -22,7 +22,7 @@ namespace TryCSharp.Samples.Basic
         // INotifyPropertyChangedインターフェースの実装
         private class NotityPropertyChangedImpl : INotifyPropertyChanged
         {
-            private string _name;
+            private string _name = string.Empty;
 
             public string Name
             {
@@ -41,7 +41,7 @@ namespace TryCSharp.Samples.Basic
                 }
             }
 
-            public event PropertyChangedEventHandler PropertyChanged;
+            public event PropertyChangedEventHandler? PropertyChanged;
 
             #region OnPropertyChanged
 

@@ -12,7 +12,7 @@ namespace TryCSharp.Samples.Basic
         [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull")]
         public void Execute()
         {
-            string s = null;
+            string? s = null;
             s.PrintMyName();
         }
     }
@@ -20,7 +20,7 @@ namespace TryCSharp.Samples.Basic
     // ReSharper disable once InconsistentNaming
     internal static class ExtensionMethodSample01_ExtClass
     {
-        public static void PrintMyName(this string self)
+        public static void PrintMyName(this string? self)
         {
             Output.WriteLine(self == null);
             Output.WriteLine("GSF-ZERO1.");

@@ -25,7 +25,7 @@ namespace TryCSharp.Samples.Basic
             //
             // イベントハンドラ設定.
             //
-            (obj as INotifyPropertyChanged).PropertyChanged += (sender, e) => { Output.WriteLine("Property Changed:{0}", e.PropertyName); };
+            (obj as INotifyPropertyChanged)!.PropertyChanged += (sender, e) => { Output.WriteLine("Property Changed:{0}", e.PropertyName); };
 
             //
             // メンバー定義.
@@ -36,7 +36,7 @@ namespace TryCSharp.Samples.Basic
             //
             // メンバー削除.
             //
-            (obj as IDictionary<string, object>).Remove("Age");
+            (obj as IDictionary<string, object>)!.Remove("Age");
 
             //
             // 値変更.

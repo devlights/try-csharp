@@ -40,7 +40,7 @@ namespace TryCSharp.Samples.Basic
                 _memberMappings = new Dictionary<string, object>();
             }
 
-            public override bool TryGetMember(GetMemberBinder binder, out object result)
+            public override bool TryGetMember(GetMemberBinder binder, out object? result)
             {
                 result = null;
 
@@ -54,8 +54,13 @@ namespace TryCSharp.Samples.Basic
                 return false;
             }
 
-            public override bool TrySetMember(SetMemberBinder binder, object value)
+            public override bool TrySetMember(SetMemberBinder binder, object? value)
             {
+                if (value == null)
+                {
+                    return true;
+                }
+                
                 var name = binder.Name.ToUpper();
                 if (_memberMappings.ContainsKey(name))
                 {

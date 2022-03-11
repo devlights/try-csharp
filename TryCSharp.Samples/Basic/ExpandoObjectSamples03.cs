@@ -28,7 +28,7 @@ namespace TryCSharp.Samples.Basic
             //
             // 定義されているメンバーを列挙.
             //
-            var map = obj as IDictionary<string, object>;
+            var map = (IDictionary<string, object>) obj;
             foreach (var pair in map)
             {
                 Output.WriteLine("{0}={1}", pair.Key, pair.Value);

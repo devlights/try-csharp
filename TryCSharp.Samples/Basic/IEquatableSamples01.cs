@@ -70,7 +70,7 @@ namespace TryCSharp.Samples.Basic
             public string Name { get; private set; }
 
             // IEquatable<T>の実装.
-            public bool Equals(Data other)
+            public bool Equals(Data? other)
             {
                 Output.WriteLine("\t→→Call IEquatable.Equals");
 
@@ -78,7 +78,7 @@ namespace TryCSharp.Samples.Basic
             }
 
             // object.Equals
-            public override bool Equals(object other)
+            public override bool Equals(object? other)
             {
                 Output.WriteLine("\t→→Call object.Equals");
 

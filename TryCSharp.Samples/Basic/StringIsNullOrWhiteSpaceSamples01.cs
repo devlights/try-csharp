@@ -17,7 +17,7 @@ namespace TryCSharp.Samples.Basic
             // String::IsNullOrWhiteSpaceメソッドは、IsNullOrEmptyメソッドの動作に
             // 加え、更に空白文字のみの場合もチェックしてくれる。
             //
-            string nullStr = null;
+            string? nullStr = null;
             var emptyStr = string.Empty;
             var spaceStr = "    ";
             var normalStr = "hello world";

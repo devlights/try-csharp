@@ -33,7 +33,7 @@ namespace TryCSharp.Samples.Basic
 
             public EventHandlerList Events { get; set; }
 
-            public event EventHandler TestEvent;
+            public event EventHandler? TestEvent;
 
             public void FireEvents()
             {

@@ -9,12 +9,12 @@ namespace TryCSharp.Samples.CSharp7
     {
         private class MyInnerClass
         {
-            public MyInnerClass(MyInnerClass2 inner)
+            public MyInnerClass(MyInnerClass2? inner)
             {
                 this.Inner = inner;
             }
 
-            public MyInnerClass2 Inner { get; }
+            public MyInnerClass2? Inner { get; }
         }
 
         private class MyInnerClass2
@@ -36,7 +36,7 @@ namespace TryCSharp.Samples.CSharp7
             if (x is string)
             {
                 // ReSharper disable once TryCastAlwaysSucceeds
-                var cs6 = x as string;
+                var cs6 = (string) x;
                 Output.WriteLine($"C# 6.0 val:{cs6}, length:{cs6.Length}");
             }
 
@@ -48,7 +48,7 @@ namespace TryCSharp.Samples.CSharp7
             // - var pattern
             //
             // constant pattern
-            object y = null;
+            object? y = null;
             if (y is null)
             {
                 Output.WriteLine("y is null.");
@@ -97,7 +97,7 @@ namespace TryCSharp.Samples.CSharp7
 
             // var pattern はちょっと特殊。
             // これは、null のときも含めて is 演算子の評価が常にTrueとなって、var で宣言した変数に入る
-            if (innerB.Inner is var j)
+            if (innerB?.Inner is var j)
             {
                 Output.WriteLine($"j is null [{j == null}]");
             }

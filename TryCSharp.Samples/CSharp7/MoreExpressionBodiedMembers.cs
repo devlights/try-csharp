@@ -9,7 +9,7 @@ namespace TryCSharp.Samples.CSharp7
         {
             private string _value;
 
-            public Data(string val) => this.Value = val;
+            public Data(string val) => this._value = val;
             
             public string UpperCaseValue => this.Value.ToUpper();
 

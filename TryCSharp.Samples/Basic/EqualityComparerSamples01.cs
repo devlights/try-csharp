@@ -168,7 +168,7 @@ namespace TryCSharp.Samples.Basic
 
         private class DataEqualityComparer : EqualityComparer<Data>
         {
-            public override bool Equals(Data x, Data y)
+            public override bool Equals(Data? x, Data? y)
             {
                 if (x == null && y == null)
                 {
@@ -206,7 +206,7 @@ namespace TryCSharp.Samples.Basic
 
             public string Value { get; private set; }
 
-            public bool Equals(Data2 other)
+            public bool Equals(Data2? other)
             {
                 if (other == null)
                 {
@@ -216,7 +216,7 @@ namespace TryCSharp.Samples.Basic
                 return other.Name == Name;
             }
 
-            public override bool Equals(object other)
+            public override bool Equals(object? other)
             {
                 var data = other as Data2;
                 if (data == null)

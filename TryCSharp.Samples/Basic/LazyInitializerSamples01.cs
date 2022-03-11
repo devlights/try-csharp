@@ -40,7 +40,7 @@ namespace TryCSharp.Samples.Basic
 
         private class HasHeavyData
         {
-            private HeavyObject _heavy;
+            private HeavyObject? _heavy;
 
             public HeavyObject Heavy
             {

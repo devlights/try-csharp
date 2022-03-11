@@ -18,7 +18,7 @@ namespace TryCSharp.Samples.CSharp7
 
         [SuppressMessage("ReSharper", "RedundantBoolCompare")]
         [SuppressMessage("ReSharper", "RedundantStringInterpolation")]
-        private void SwitchWithPattern(object x)
+        private void SwitchWithPattern(object? x)
         {
             // 型で振り分け
             switch (x)
