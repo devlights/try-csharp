@@ -98,7 +98,7 @@ namespace TryCSharp.Samples.Linq
             //   group thePerson by new { thePerson.Project, thePerson.Team }
             //
             Output.WriteLine("\n============ 複合キーを指定したGroupBy ==============");
-            var query3 = persons.GroupBy(thePerson => new {thePerson.Project, thePerson.Team});
+            var query3 = persons.GroupBy(thePerson => new {Project = thePerson.Project!, Team = thePerson.Team!});
             foreach (var group in query3)
             {
                 Output.WriteLine("=== {0}", group.Key);
@@ -117,7 +117,7 @@ namespace TryCSharp.Samples.Linq
             //
             Output.WriteLine("\n============ 複合キーとorderbyを指定したGroupBy ==============");
             var query4 = persons
-                    .GroupBy(thePerson => new {thePerson.Project, thePerson.Team})
+                    .GroupBy(thePerson => new {Project = thePerson.Project!, Team = thePerson.Team!})
                     .OrderByDescending(group => group.Key.Project)
                     .ThenByDescending(group => group.Key.Team);
 
@@ -134,9 +134,9 @@ namespace TryCSharp.Samples.Linq
         private class Person
         {
             public int Id { get; set; }
-            public string Name { get; set; }
-            public string Team { get; set; }
-            public string Project { get; set; }
+            public string? Name { get; set; }
+            public string? Team { get; set; }
+            public string? Project { get; set; }
 
             public override string ToString()
             {

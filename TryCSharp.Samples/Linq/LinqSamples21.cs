@@ -49,13 +49,13 @@ namespace TryCSharp.Samples.Linq
             // 実行時には、最後のselectの部分がSelectManyに置換される。
             //
             Output.WriteLine("===== Func<TSource, IEnumerable<TResult>>のサンプル =====");
-            foreach (var member in teams.SelectMany(team => team.Members))
+            foreach (var member in teams.SelectMany(team => team.Members!))
             {
                 Output.WriteLine(member);
             }
 
             Output.WriteLine("===== Func<TSource, int, IEnumerable<TResult>>のサンプル =====");
-            foreach (var member in teams.SelectMany((team, index) => index%2 == 0 ? team.Members : new List<string>()))
+            foreach (var member in teams.SelectMany((team, index) => index%2 == 0 ? team.Members! : new List<string>()))
             {
                 Output.WriteLine(member);
             }
@@ -63,7 +63,7 @@ namespace TryCSharp.Samples.Linq
             Output.WriteLine("===== collectionSelectorとresultSelectorを利用しているサンプル (1) =====");
             var query = teams.SelectMany
             (
-                team => team.Members, // collectionSelector
+                team => team.Members!, // collectionSelector
                 (team, member) => new {Team = team.Name, Name = member} // resultSelector
             );
 
@@ -75,7 +75,7 @@ namespace TryCSharp.Samples.Linq
             Output.WriteLine("===== collectionSelectorとresultSelectorを利用しているサンプル (2) =====");
             var query2 = teams.SelectMany
             (
-                (team, index) => index%2 != 0 ? team.Members : new List<string>(), // collectionSelector
+                (team, index) => index%2 != 0 ? team.Members! : new List<string>(), // collectionSelector
                 (team, member) => new {Team = team.Name, Name = member} // resultSelector
             );
 

@@ -55,13 +55,13 @@ namespace TryCSharp.Samples.Linq
 
         private class Person
         {
-            public string Name { get; set; }
-            public Team Team { get; set; }
+            public string? Name { get; set; }
+            public Team? Team { get; set; }
         }
 
         private class Team
         {
-            public string Name { get; set; }
+            public string? Name { get; set; }
         }
     }
 }

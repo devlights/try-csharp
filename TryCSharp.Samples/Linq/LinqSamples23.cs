@@ -54,7 +54,7 @@ namespace TryCSharp.Samples.Linq
             //
             var sortByIdAndNameAsc = persons
                     .OrderBy(aPerson => aPerson.Id)
-                    .ThenBy(aPerson => aPerson.Name.Last().ToString().ToInt());
+                    .ThenBy(aPerson => aPerson.Name!.Last().ToString().ToInt());
 
             Output.WriteLine("================= IDの昇順で、且つ、Nameの数字部分の昇順でソート. =================");
             Output.WriteLine(string.Join(Environment.NewLine, sortByIdAndNameAsc));
@@ -69,7 +69,7 @@ namespace TryCSharp.Samples.Linq
             //
             var sortByIdAndNameDesc = persons
                     .OrderBy(aPerson => aPerson.Id)
-                    .ThenByDescending(aPerson => aPerson.Name.Last().ToString().ToInt());
+                    .ThenByDescending(aPerson => aPerson.Name!.Last().ToString().ToInt());
 
             Output.WriteLine("================= IDの昇順で、且つ、Nameの数字部分の降順でソート. =================");
             Output.WriteLine(string.Join(Environment.NewLine, sortByIdAndNameDesc));
@@ -78,7 +78,7 @@ namespace TryCSharp.Samples.Linq
         private class Person
         {
             public int Id { get; set; }
-            public string Name { get; set; }
+            public string? Name { get; set; }
 
             public override string ToString()
             {

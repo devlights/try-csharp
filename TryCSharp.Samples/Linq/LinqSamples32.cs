@@ -37,7 +37,7 @@ namespace TryCSharp.Samples.Linq
             //
             // predicate有りで実行.
             //
-            Output.WriteLine("COUNT = {0}", people.Count(person => int.Parse(person.Name.Last().ToString())%2 == 0));
+            Output.WriteLine("COUNT = {0}", people.Count(person => int.Parse(person.Name!.Last().ToString())%2 == 0));
 
             //
             // predicate無しで実行.（LongCount)
@@ -47,12 +47,12 @@ namespace TryCSharp.Samples.Linq
             //
             // predicate有りで実行.（LongCount)
             //
-            Output.WriteLine("COUNT = {0}", people.LongCount(person => int.Parse(person.Name.Last().ToString())%2 == 0));
+            Output.WriteLine("COUNT = {0}", people.LongCount(person => int.Parse(person.Name!.Last().ToString())%2 == 0));
         }
 
         private class Person
         {
-            public string Name { get; set; }
+            public string? Name { get; set; }
 
             public override string ToString()
             {

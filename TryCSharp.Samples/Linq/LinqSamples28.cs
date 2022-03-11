@@ -42,12 +42,12 @@ namespace TryCSharp.Samples.Linq
 
         private string JoinElements<T>(IEnumerable<T> elements)
         {
-            return string.Join(",", elements.Select(item => item.ToString()));
+            return string.Join(",", elements.Select(item => item!.ToString()));
         }
 
         private class Person
         {
-            public string Name { get; set; }
+            public string? Name { get; set; }
 
             public override string ToString()
             {
@@ -57,7 +57,7 @@ namespace TryCSharp.Samples.Linq
 
         private class PersonComparer : EqualityComparer<Person>
         {
-            public override bool Equals(Person p1, Person p2)
+            public override bool Equals(Person? p1, Person? p2)
             {
                 if (object.Equals(p1, p2))
                 {
@@ -74,7 +74,7 @@ namespace TryCSharp.Samples.Linq
 
             public override int GetHashCode(Person p)
             {
-                return p.Name.GetHashCode();
+                return p.Name!.GetHashCode();
             }
         }
     }
