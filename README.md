@@ -1,5 +1,5 @@
 # try-csharp
-This is my TUTORIAL project for csharp. (dotnet core)
+This is my TUTORIAL project for csharp.
 
 ![try-csharp - DotNet Version](https://img.shields.io/badge/dotnet-6.0-blue.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/devlights/try-csharp/badge)](https://www.codefactor.io/repository/github/devlights/try-csharp)
