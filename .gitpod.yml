@@ -1,4 +1,4 @@
-image: gitpod/workspace-dotnet-lts:latest
+image: gitpod/workspace-dotnet:latest
 tasks:
   - name: dotnet restore
     init: make restore
