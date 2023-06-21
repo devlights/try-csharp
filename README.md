@@ -42,6 +42,25 @@ global.json file:
   Not found
 ```
 
+## Environments
+
+```sh
+$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 22.04.2 LTS
+Release:        22.04
+Codename:       jammy
+```
+
+## Requirements
+
+### [go-task](https://taskfile.dev/)
+
+```sh
+$ go install github.com/go-task/task/v3/cmd/task@latest
+```
+
 ## Run (IDE)
 
 + set TryCSharp.Tools.Cui project as 'startup project'
@@ -50,19 +69,6 @@ global.json file:
 ## Run (CLI)
 
 ```sh
-$ cd TryCSharp.Tools.Cui
-$ dotnet run
-```
-
-or 
-
-```sh
-$ cd TryCSharp.Tools.Cui
-$ dotnet run --onetime
-```
-
-or
-
-```sh
-$ make run
+$ task run
+task: [run] dotnet run --project TryCSharp.Tools.Cui --onetime
 ```
