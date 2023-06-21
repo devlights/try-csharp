@@ -22,7 +22,7 @@ namespace TryCSharp.Samples.Threading
             //   ・フィールドの値は常に、その型のデフォルト値で初期化される。初期値を設定しても無視される。
             //
             // ThreadLocal<T>は、上記の点を解決している。つまり
-            //   ・インスタンスフィールドに対応している。
+            //   ・インスタンスフィールドに対応している。(が、警告が出る)
             //   ・フィールドの値を初期値で初期化出来る。
             //
             // 利用方法は、System.Lazyと似ており、コンストラクタに初期化のためのデリゲートを渡す。
@@ -66,46 +66,7 @@ namespace TryCSharp.Samples.Threading
                 countdown.Wait();
             }
 
-            //
-            // インスタンスフィールドのThreadStatic属性の確認
-            // ThreadStatic属性は、インスタンスフィールドに対しては効果が無い。
-            // なので、出力される値は2,3,4,5,6...とインクリメントされていく.
-            //
-            using (var countdown = new CountdownEvent(numberOfParallels))
-            {
-                for (var i = 0; i < numberOfParallels; i++)
-                {
-                    new Thread(() =>
-                    {
-                        Output.WriteLine("ThreadStatic [count3]>>> {0}", count3++);
-                        countdown.Signal();
-                    }).Start();
-                }
-
-                countdown.Wait();
-            }
-
-            //
-            // インスタンスフィールドのThreadLocal<T>の確認
-            // ThreadLocal<T>は、インスタンスフィールドに対しても問題なく利用できる。
-            // なので、出力される値は4となる。
-            //
-            using (var countdown = new CountdownEvent(numberOfParallels))
-            {
-                for (var i = 0; i < numberOfParallels; i++)
-                {
-                    new Thread(() =>
-                    {
-                        Output.WriteLine("ThreadLocal<T> [count4]>>> {0}", count4.Value++);
-                        countdown.Signal();
-                    }).Start();
-                }
-
-                countdown.Wait();
-            }
-
             count2.Dispose();
-            count4.Dispose();
         }
 
         #region Static Fields
@@ -114,15 +75,6 @@ namespace TryCSharp.Samples.Threading
         [ThreadStatic] private static int count = 2;
 
         private static readonly ThreadLocal<int> count2 = new ThreadLocal<int>(() => 2);
-
-        #endregion
-
-        #region Fields
-
-        // ReSharper disable once ThreadStaticAtInstanceField
-        [ThreadStatic] private int count3 = 2;
-
-        private readonly ThreadLocal<int> count4 = new ThreadLocal<int>(() => 4);
 
         #endregion
     }
