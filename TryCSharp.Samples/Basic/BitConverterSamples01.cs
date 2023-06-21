@@ -36,7 +36,7 @@ namespace TryCSharp.Samples.Basic
             bytes = new byte[] {1, 0, 0, 0};
             Output.WriteLine(BitConverter.ToInt32(bytes, 0));
 
-            bytes = BitConverter.GetBytes((byte) 'a');
+            bytes = BitConverter.GetBytes((short) 'a');
             Output.WriteLine(BitConverter.ToChar(bytes, 0));
         }
     }

@@ -1,7 +1,7 @@
 # try-csharp
 This is my TUTORIAL project for csharp.
 
-![try-csharp - DotNet Version](https://img.shields.io/badge/dotnet-6.0-blue.svg)
+![try-csharp - DotNet Version](https://img.shields.io/badge/dotnet-7.0-blue.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/devlights/try-csharp/badge)](https://www.codefactor.io/repository/github/devlights/try-csharp)
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/devlights/try-csharp) 
 
@@ -9,49 +9,66 @@ This is my TUTORIAL project for csharp.
 
 ```sh
 $ dotnet --info
-.NET SDK (reflecting any global.json):
- Version:   6.0.100
- Commit:    9e8b04bbff
+.NET SDK:
+ Version:   7.0.100
+ Commit:    e12b7af219
 
 Runtime Environment:
  OS Name:     ubuntu
- OS Version:  20.04
+ OS Version:  22.04
  OS Platform: Linux
- RID:         ubuntu.20.04-x64
- Base Path:   /home/gitpod/dotnet/sdk/6.0.100/
+ RID:         ubuntu.22.04-x64
+ Base Path:   /home/gitpod/dotnet/sdk/7.0.100/
 
-Host (useful for support):
-  Version: 6.0.0
-  Commit:  4822e3c3aa
+Host:
+  Version:      7.0.0
+  Architecture: x64
+  Commit:       d099f075e4
 
 .NET SDKs installed:
-  6.0.100 [/home/gitpod/dotnet/sdk]
+  7.0.100 [/home/gitpod/dotnet/sdk]
 
 .NET runtimes installed:
-  Microsoft.AspNetCore.App 6.0.0 [/home/gitpod/dotnet/shared/Microsoft.AspNetCore.App]
-  Microsoft.NETCore.App 6.0.0 [/home/gitpod/dotnet/shared/Microsoft.NETCore.App]
+  Microsoft.AspNetCore.App 7.0.0 [/home/gitpod/dotnet/shared/Microsoft.AspNetCore.App]
+  Microsoft.NETCore.App 7.0.0 [/home/gitpod/dotnet/shared/Microsoft.NETCore.App]
+
+Other architectures found:
+  None
+
+Environment variables:
+  DOTNET_ROOT       [/home/gitpod/dotnet]
+
+global.json file:
+  Not found
+```
+
+## Environments
+
+```sh
+$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 22.04.2 LTS
+Release:        22.04
+Codename:       jammy
+```
+
+## Requirements
+
+### [go-task](https://taskfile.dev/)
+
+```sh
+$ go install github.com/go-task/task/v3/cmd/task@latest
 ```
 
 ## Run (IDE)
+
 + set TryCSharp.Tools.Cui project as 'startup project'
 + run onto IDE
 
 ## Run (CLI)
 
 ```sh
-$ cd TryCSharp.Tools.Cui
-$ dotnet run
-```
-
-or 
-
-```sh
-$ cd TryCSharp.Tools.Cui
-$ dotnet run --onetime
-```
-
-or
-
-```sh
-$ make run
+$ task run
+task: [run] dotnet run --project TryCSharp.Tools.Cui --onetime
 ```

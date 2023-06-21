@@ -2,6 +2,8 @@ image: gitpod/workspace-dotnet:latest
 tasks:
   - name: dotnet restore
     init: make restore
+  - name: install task
+    init: go install github.com/go-task/task/v3/cmd/task@latest
 vscode:
   extensions:
     - muhammad-sammy.csharp
