@@ -1,0 +1,17 @@
+# https://taskfile.dev
+
+version: "3"
+
+tasks:
+  default:
+    cmds:
+      - task: run
+  build:
+    cmds:
+      - dotnet build
+  clean:
+    cmds:
+      - dotnet clean
+  run:
+    cmds:
+      - dotnet run --project TryCSharp.Tools.Cui --onetime
