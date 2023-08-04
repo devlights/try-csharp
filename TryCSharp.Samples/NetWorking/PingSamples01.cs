@@ -1,6 +1,7 @@
 ﻿using System.Net.NetworkInformation;
 using System.Threading;
 using TryCSharp.Common;
+
 // ReSharper disable PossibleNullReferenceException
 
 namespace TryCSharp.Samples.NetWorking
